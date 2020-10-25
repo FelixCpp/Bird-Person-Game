@@ -36,6 +36,9 @@
     <ClCompile Include="Source\BPG\GameObjects\FrameRateCounter.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="Source\BPG\GameObjects\Camera.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="openal32.dll" />
@@ -68,6 +71,9 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Include\BPG\Utils\MemoryCache.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\BPG\GameObjects\Camera.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

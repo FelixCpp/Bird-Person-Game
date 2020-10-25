@@ -36,7 +36,7 @@ namespace GameObjects
 
 		Player();
 
-		void Update(const sf::Time & deltaTime);
+		void update(const sf::Time & deltaTime);
 		
 	protected:
 
@@ -44,10 +44,10 @@ namespace GameObjects
 
 	private:
 
-		Utils::Animation & GetAnimation();
+		Utils::Animation & getAnimation();
 
-		void HandleInput();
-		void InitializeAnimations();
+		void handleInput();
+		void initializeAnimations();
 
 	private:
 

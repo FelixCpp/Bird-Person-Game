@@ -13,9 +13,9 @@ namespace Utils
 		this->window.setFramerateLimit(60u);
 	}
 	
-	void Application::Launch()
+	void Application::launch()
 	{
-		this->PushState(std::make_unique<GameStates::PlayingGameState>(*this));
+		this->pushState(std::make_unique<GameStates::PlayingGameState>(*this));
 
 		sf::Clock clock;
 		sf::Event event;
@@ -35,26 +35,26 @@ namespace Utils
 					window.setView(sf::View(visibleArea));
 				} else
 				{
-					state->HandleInput(event);
+					state->handleInput(event);
 				}
 			}
 
 			// Update & Draw mit der vergangenden Zeit seit dem letzen durchlauf
 			const sf::Time deltaTime = clock.restart();
-			state->Update(deltaTime);
-			state->Draw();
+			state->update(deltaTime);
+			state->draw();
 
 			// catch window events
 			this->window.display();
 		}
 	}
 	
-	void Application::PushState(std::unique_ptr<GameStates::GameStateBase> state)
+	void Application::pushState(std::unique_ptr<GameStates::GameStateBase> state)
 	{
 		this->gameStates.push(std::move(state));
 	}
 	
-	void Application::PopState()
+	void Application::popState()
 	{
 		// Wir wollen die gamestates nicht leeren können
 		if (this->gameStates.size() > 1)
@@ -63,7 +63,7 @@ namespace Utils
 		}
 	}
 
-	sf::RenderWindow & Application::GetWindow()
+	sf::RenderWindow & Application::getWindow()
 	{
 		return this->window;
 	}

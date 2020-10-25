@@ -18,7 +18,7 @@ namespace Utils
 		using CacheType = std::shared_ptr<TCacheType>;
 		using KeyType = TKeyType;
 
-		inline static CacheType Get(const KeyType & key)
+		inline static CacheType get(const KeyType & key)
 		{
 			const auto itr = cache.find(key);
 			if (itr != cache.end())
@@ -37,7 +37,7 @@ namespace Utils
 			return nullptr;
 		}
 
-		inline static void Clear()
+		inline static void clear()
 		{
 			cache.clear();
 		}

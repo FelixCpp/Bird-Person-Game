@@ -16,12 +16,12 @@ namespace Utils
 
 		explicit Application(uint32_t width, uint32_t height, const std::string & title);
 		
-		void Launch();
+		void launch();
 
-		void PushState(std::unique_ptr<GameStates::GameStateBase> state);
-		void PopState();
+		void pushState(std::unique_ptr<GameStates::GameStateBase> state);
+		void popState();
 
-		sf::RenderWindow & GetWindow();
+		sf::RenderWindow & getWindow();
 
 	private:
 

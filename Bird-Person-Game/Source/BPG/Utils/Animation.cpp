@@ -25,23 +25,23 @@ namespace Utils
 		}
 	}
 
-	void Animation::Update(const sf::Time & deltaTime)
+	void Animation::update(const sf::Time & deltaTime)
 	{
 		this->delay += deltaTime;
 		if (this->delay >= this->holdTime)
 		{
 			this->delay = sf::Time::Zero;
-			this->Advance();
+			this->advance();
 		}
 	}
 
-	void Animation::ApplyToSprite(sf::Sprite & sprite)
+	void Animation::applyToSprite(sf::Sprite & sprite)
 	{
 		sprite.setTexture(this->texture);
 		sprite.setTextureRect(this->frames[this->index]);
 	}
 
-	void Animation::Advance()
+	void Animation::advance()
 	{
 		this->index++;
 		if (this->index >= this->frames.size())

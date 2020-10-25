@@ -12,46 +12,87 @@ namespace GameStates
 		GameStateBase(application),
 		backgroundTexture(nullptr),
 		backgroundSprite(),
-		view(sf::Vector2f(0.f, 0.f), sf::Vector2f(application.GetWindow().getSize())),
+		camera(application.getWindow()),
 		player(),
-		frameRateCounter()
+		frameRateCounter(),
+		followPlayer(true)
 	{
-		this->backgroundTexture = Utils::TextureMemoryCache::Get("Assets/Textures/GrassBackground.jpg");
+		this->backgroundTexture = Utils::TextureMemoryCache::get("Assets/Textures/GrassBackground.jpg");
 
 		if (auto texture = this->backgroundTexture)
 		{
 			this->window.setSize(texture->getSize());
+			texture->setRepeated(true);
+
 			this->backgroundSprite.setTexture(*texture);
+			this->backgroundSprite.setTextureRect(sf::IntRect(-3000, -3000, 6000, 6000));
 		}
 
 		this->player.setPosition((sf::Vector2f)this->window.getSize() / 2.f);
 		this->frameRateCounter.setPosition(sf::Vector2f(30.f, 30.f));
 	}
 	
-	void PlayingGameState::HandleInput(const sf::Event & event)
+	void PlayingGameState::handleInput(const sf::Event & event)
 	{
 		switch (event.type)
 		{
+			case sf::Event::EventType::MouseWheelScrolled:
+			{
+				auto & args = event.mouseWheelScroll;
+				if (args.wheel == sf::Mouse::Wheel::VerticalWheel)
+				{
+					bool forwards = args.delta > 0;
+
+					if (forwards)
+					{
+						this->camera.zoom(0.9f);
+					} else
+					{
+						this->camera.zoom(1.1f);
+					}
+				}
+			} break;
+
+			case sf::Event::KeyPressed:
+			{
+				auto & args = event.key;
+				if (args.code == sf::Keyboard::Key::RControl)
+				{
+					this->followPlayer = !this->followPlayer;
+				}
+			} break;
+
 			default:
 				break;
 		}
 	}
 	
-	void PlayingGameState::Update(const sf::Time & deltaTime)
+	void PlayingGameState::update(const sf::Time & deltaTime)
 	{
-		this->player.Update(deltaTime);
-		this->view.setCenter(this->player.getPosition());
+		this->player.update(deltaTime);
+		this->frameRateCounter.count();
 
-		this->frameRateCounter.Count();
+		if (this->followPlayer)
+		{
+			this->camera.setCenter(this->player.getPosition());
+		} else
+		{
+			this->camera.handleInput(deltaTime);
+		}
 	}
 	
-	void PlayingGameState::Draw() const
+	void PlayingGameState::draw() const
 	{
 		this->window.clear(sf::Color::Black);
-		this->window.setView(this->view);
+		
+		this->window.setView(this->camera);
+		// ----------------------------------------------
+		// Alles was mit der view bewegt werden soll ...
 		this->window.draw(this->backgroundSprite);
 		this->window.draw(this->player);
+		// ----------------------------------------------
 		this->window.setView(this->window.getDefaultView());
+
 		this->window.draw(this->frameRateCounter);
 	}
 

@@ -10,7 +10,7 @@ namespace GameObjects
 {
 
 	Player::Player() :
-		texture(Utils::TextureMemoryCache::Get("Assets/Textures/Fox.png")),
+		texture(Utils::TextureMemoryCache::get("Assets/Textures/Fox.png")),
 		sprite(),
 		velocity(0.f, 0.f),
 		direction(Direction::WalkingRight),
@@ -22,14 +22,14 @@ namespace GameObjects
 			this->sprite.setScale(2.f, 2.f);
 		}
 
-		this->InitializeAnimations();
+		this->initializeAnimations();
 	}
 
-	void Player::Update(const sf::Time & deltaTime)
+	void Player::update(const sf::Time & deltaTime)
 	{
-		this->HandleInput();
-		this->GetAnimation().Update(deltaTime);
-		this->GetAnimation().ApplyToSprite(this->sprite);
+		this->handleInput();
+		this->getAnimation().update(deltaTime);
+		this->getAnimation().applyToSprite(this->sprite);
 
 		const sf::IntRect rect = this->sprite.getTextureRect();
 		const sf::Vector2f size(rect.width / 2.f, rect.height / 2.f);
@@ -45,12 +45,12 @@ namespace GameObjects
 		target.draw(this->sprite, states);
 	}
 
-	Utils::Animation & Player::GetAnimation()
+	Utils::Animation & Player::getAnimation()
 	{
 		return this->animations.at(this->direction);
 	}
 
-	void Player::HandleInput()
+	void Player::handleInput()
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
 		{
@@ -82,7 +82,7 @@ namespace GameObjects
 		}
 	}
 
-	void Player::InitializeAnimations()
+	void Player::initializeAnimations()
 	{
 		if (auto texture = this->texture)
 		{

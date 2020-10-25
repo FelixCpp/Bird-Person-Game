@@ -21,9 +21,9 @@ namespace GameStates
 		explicit GameStateBase(Utils::Application & application);
 		virtual ~GameStateBase() = default;
 
-		virtual void HandleInput(const sf::Event & event) = 0;
-		virtual void Update(const sf::Time & deltaTime) = 0;
-		virtual void Draw() const = 0;
+		virtual void handleInput(const sf::Event & event) = 0;
+		virtual void update(const sf::Time & deltaTime) = 0;
+		virtual void draw() const = 0;
 
 	protected:
 

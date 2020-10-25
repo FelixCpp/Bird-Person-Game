@@ -7,7 +7,7 @@ namespace GameStates
 
 	GameStateBase::GameStateBase(Utils::Application & application) :
 		app(application),
-		window(application.GetWindow())
+		window(application.getWindow())
 	{
 	}
 

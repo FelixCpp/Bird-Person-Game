@@ -14,14 +14,14 @@ namespace GameObjects
 		frameCount(0u),
 		fps(0.f)
 	{
-		if (this->font = Utils::FontMemoryCache::Get("Assets/Fonts/Sansation/Sansation-Bold.ttf"))
+		if (this->font = Utils::FontMemoryCache::get("Assets/Fonts/Sansation/Sansation-Bold.ttf"))
 		{
 			this->text.setFont(*this->font);
 			this->text.setCharacterSize(32);
 		}
 	}
 
-	void FrameRateCounter::Count()
+	void FrameRateCounter::count()
 	{
 		this->frameCount++;
 
@@ -34,17 +34,17 @@ namespace GameObjects
 		}
 	}
 
-	void FrameRateCounter::SetRefreshRate(const sf::Time & refreshRate)
+	void FrameRateCounter::setRefreshRate(const sf::Time & refreshRate)
 	{
 		this->refreshRate = refreshRate;
 	}
 
-	const sf::Time & FrameRateCounter::GetRefreshRate() const
+	const sf::Time & FrameRateCounter::getRefreshRate() const
 	{
 		return this->refreshRate;
 	}
 
-	float FrameRateCounter::GetFps() const
+	float FrameRateCounter::getFps() const
 	{
 		return this->fps;
 	}

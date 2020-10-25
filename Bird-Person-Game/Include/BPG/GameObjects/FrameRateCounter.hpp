@@ -18,12 +18,12 @@ namespace GameObjects
 
 		FrameRateCounter();
 
-		void Count();
+		void count();
 
-		void SetRefreshRate(const sf::Time & refreshRate);
-		const sf::Time & GetRefreshRate() const;
+		void setRefreshRate(const sf::Time & refreshRate);
+		const sf::Time & getRefreshRate() const;
 
-		float GetFps() const;
+		float getFps() const;
 
 	protected:
 

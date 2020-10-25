@@ -16,12 +16,12 @@ namespace Utils
 
 		explicit Animation(const sf::Texture & texture, size_t cols, size_t rows, size_t startX, size_t lengthX, size_t startY, size_t lengthY);
 
-		void Update(const sf::Time & deltaTime);
-		void ApplyToSprite(sf::Sprite & sprite);
+		void update(const sf::Time & deltaTime);
+		void applyToSprite(sf::Sprite & sprite);
 
 	private:
 
-		void Advance();
+		void advance();
 		
 	private:
 
