@@ -148,6 +148,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Source\BPG\GameStates\GameStateBase.cpp" />
+    <ClCompile Include="Source\BPG\GameStates\PlayingGameState.cpp" />
+    <ClCompile Include="Source\BPG\Utils\Application.cpp" />
     <ClCompile Include="Source\BPG\Utils\MemoryImageCache.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -159,6 +162,9 @@
     <None Include="sfml-window-d-2.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\BPG\GameStates\GameStateBase.hpp" />
+    <ClInclude Include="Include\BPG\GameStates\PlayingGameState.hpp" />
+    <ClInclude Include="Include\BPG\Utils\Application.hpp" />
     <ClInclude Include="Include\BPG\Utils\MemoryImageCache.hpp" />
     <ClInclude Include="Include\BPG\Utils\StaticObject.hpp" />
   </ItemGroup>
