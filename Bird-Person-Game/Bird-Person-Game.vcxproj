@@ -78,12 +78,12 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)\Bird-Person-Game\Dependencies\SFML-2.5.1\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\Bird-Person-Game\Dependencies\SFML-2.5.1\include;$(SolutionDir)\Bird-Person-Game\Include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\Bird-Person-Game\Dependencies\SFML-2.5.1\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)\Bird-Person-Game\Dependencies\SFML-2.5.1\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)\Bird-Person-Game\Dependencies\SFML-2.5.1\include;$(SolutionDir)\Bird-Person-Game\Include;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)\Bird-Person-Game\Dependencies\SFML-2.5.1\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Source\BPG\Utils\MemoryImageCache.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="openal32.dll" />
@@ -156,6 +157,14 @@
     <None Include="sfml-network-d-2.dll" />
     <None Include="sfml-system-d-2.dll" />
     <None Include="sfml-window-d-2.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Include\BPG\Utils\MemoryImageCache.hpp" />
+    <ClInclude Include="Include\BPG\Utils\StaticObject.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="Assets\Textures\InstagramLogo.png" />
+    <Image Include="Assets\Textures\InstagramLogo2.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

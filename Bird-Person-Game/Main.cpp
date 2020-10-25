@@ -1,14 +1,11 @@
 #include <SFML/Window/Event.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
-#include <SFML/Graphics/CircleShape.hpp>
+#include <SFML/Graphics/Sprite.hpp>
 
 int main()
 {
-	sf::RenderWindow window(sf::VideoMode(200, 200), "Welcome to SFML");
+	sf::RenderWindow window(sf::VideoMode(1000, 700), "Welcome to SFML");
 	window.setFramerateLimit(60);
-
-	sf::CircleShape circle(100.f);
-	circle.setFillColor(sf::Color::Green);
 
 	sf::Event event;
 	while (window.isOpen())
@@ -20,7 +17,7 @@ int main()
 		}
 
 		window.clear();
-		window.draw(circle);
+
 		window.display();
 	}
 
