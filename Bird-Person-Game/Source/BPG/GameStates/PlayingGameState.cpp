@@ -35,7 +35,7 @@ namespace GameStates
 	
 	void PlayingGameState::Update(const sf::Time & deltaTime)
 	{
-		this->player.update(deltaTime);
+		this->player.Update(deltaTime);
 	}
 	
 	void PlayingGameState::Draw() const

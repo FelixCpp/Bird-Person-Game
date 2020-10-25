@@ -12,11 +12,14 @@ namespace GameObjects
 {
 
 	class Player : public sf::Drawable, public sf::Transformable {
+		
+		inline static constexpr float SPEED = 500.f;
+
 	public:
 
 		Player();
 
-		void update(const sf::Time & deltaTime);
+		void Update(const sf::Time & deltaTime);
 		
 	protected:
 
@@ -24,8 +27,13 @@ namespace GameObjects
 
 	private:
 
+		void HandleInput();
+
+	private:
+
 		std::shared_ptr<sf::Texture> texture;
 		sf::Sprite sprite;
+		sf::Vector2f velocity;
 
 	};
 

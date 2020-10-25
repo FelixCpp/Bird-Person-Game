@@ -172,6 +172,8 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Textures\CharacterAnimationSpriteSheet.png" />
+    <Image Include="Assets\Textures\Fox.png" />
+    <Image Include="Assets\Textures\GrassBackground.jpg" />
     <Image Include="Assets\Textures\InstagramLogo.png" />
     <Image Include="Assets\Textures\InstagramLogo2.png" />
   </ItemGroup>

@@ -72,5 +72,11 @@
     <Image Include="Assets\Textures\CharacterAnimationSpriteSheet.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
+    <Image Include="Assets\Textures\Fox.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="Assets\Textures\GrassBackground.jpg">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
   </ItemGroup>
 </Project>
