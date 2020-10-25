@@ -78,13 +78,13 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\fix20\Documents\Visual Studio Projects\C++\Executable Projects\Bird-Person-Game\Bird-Person-Game\Dependencies\SFML-2.5.1\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\fix20\Documents\Visual Studio Projects\C++\Executable Projects\Bird-Person-Game\Bird-Person-Game\Dependencies\SFML-2.5.1\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\Bird-Person-Game\Dependencies\SFML-2.5.1\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\Bird-Person-Game\Dependencies\SFML-2.5.1\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>C:\Users\fix20\Documents\Visual Studio Projects\C++\Executable Projects\Bird-Person-Game\Bird-Person-Game\Dependencies\SFML-2.5.1\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\fix20\Documents\Visual Studio Projects\C++\Executable Projects\Bird-Person-Game\Bird-Person-Game\Dependencies\SFML-2.5.1\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\Bird-Person-Game\Dependencies\SFML-2.5.1\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\Bird-Person-Game\Dependencies\SFML-2.5.1\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
