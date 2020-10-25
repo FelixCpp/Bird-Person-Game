@@ -151,6 +151,7 @@
     <ClCompile Include="Source\BPG\GameObjects\Player.cpp" />
     <ClCompile Include="Source\BPG\GameStates\GameStateBase.cpp" />
     <ClCompile Include="Source\BPG\GameStates\PlayingGameState.cpp" />
+    <ClCompile Include="Source\BPG\Utils\Animation.cpp" />
     <ClCompile Include="Source\BPG\Utils\Application.cpp" />
     <ClCompile Include="Source\BPG\Utils\MemoryImageCache.cpp" />
   </ItemGroup>
@@ -166,6 +167,7 @@
     <ClInclude Include="Include\BPG\GameObjects\Player.hpp" />
     <ClInclude Include="Include\BPG\GameStates\GameStateBase.hpp" />
     <ClInclude Include="Include\BPG\GameStates\PlayingGameState.hpp" />
+    <ClInclude Include="Include\BPG\Utils\Animation.hpp" />
     <ClInclude Include="Include\BPG\Utils\Application.hpp" />
     <ClInclude Include="Include\BPG\Utils\MemoryImageCache.hpp" />
     <ClInclude Include="Include\BPG\Utils\StaticObject.hpp" />

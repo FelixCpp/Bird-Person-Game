@@ -30,7 +30,7 @@ namespace Utils
 					this->window.close();
 				} else if (event.type == sf::Event::EventType::Resized)
 				{
-					sf::FloatRect visibleArea(0, 0, event.size.width, event.size.height);
+					sf::FloatRect visibleArea(0, 0, (float)event.size.width, (float)event.size.height);
 					window.setView(sf::View(visibleArea));
 				} else
 				{

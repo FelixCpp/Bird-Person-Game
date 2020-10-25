@@ -1,6 +1,9 @@
 #pragma once
 
 #include <memory>
+#include <unordered_map>
+
+#include <BPG/Utils/Animation.hpp>
 
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Transformable.hpp>
@@ -15,6 +18,15 @@ namespace GameObjects
 		
 		inline static constexpr float SPEED = 500.f;
 
+	private:
+
+		enum class Direction {
+			Left,
+			Right,
+			Up,
+			Down
+		};
+
 	public:
 
 		Player();
@@ -27,13 +39,20 @@ namespace GameObjects
 
 	private:
 
+		Utils::Animation & GetAnimation();
+
 		void HandleInput();
+		void InitializeAnimations();
 
 	private:
 
 		std::shared_ptr<sf::Texture> texture;
 		sf::Sprite sprite;
 		sf::Vector2f velocity;
+
+		Direction direction;
+		std::unordered_map<Direction, Utils::Animation> animations;
+
 
 	};
 
