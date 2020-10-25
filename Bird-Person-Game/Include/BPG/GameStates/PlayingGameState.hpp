@@ -4,6 +4,7 @@
 
 #include <BPG/GameStates/GameStateBase.hpp>
 #include <BPG/GameObjects/Player.hpp>
+#include <BPG/GameObjects/FrameRateCounter.hpp>
 
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/Sprite.hpp>
@@ -27,6 +28,7 @@ namespace GameStates
 		sf::Sprite backgroundSprite;
 
 		GameObjects::Player player;
+		GameObjects::FrameRateCounter frameRateCounter;
 
 	};
 

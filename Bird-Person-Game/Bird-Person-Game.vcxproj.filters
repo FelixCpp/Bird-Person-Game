@@ -18,9 +18,6 @@
     <ClCompile Include="Main.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="Source\BPG\Utils\MemoryImageCache.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="Source\BPG\GameStates\GameStateBase.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
@@ -36,6 +33,9 @@
     <ClCompile Include="Source\BPG\Utils\Animation.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="Source\BPG\GameObjects\FrameRateCounter.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="openal32.dll" />
@@ -46,9 +46,6 @@
     <None Include="sfml-window-d-2.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Include\BPG\Utils\MemoryImageCache.hpp">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="Include\BPG\Utils\StaticObject.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -65,6 +62,12 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Include\BPG\Utils\Animation.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\BPG\GameObjects\FrameRateCounter.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\BPG\Utils\MemoryCache.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
@@ -84,5 +87,16 @@
     <Image Include="Assets\Textures\GrassBackground.jpg">
       <Filter>Ressourcendateien</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="Assets\Fonts\Sansation\Sansation-Bold.ttf" />
+    <Font Include="Assets\Fonts\Sansation\Sansation-BoldItalic.ttf" />
+    <Font Include="Assets\Fonts\Sansation\Sansation-Italic.ttf" />
+    <Font Include="Assets\Fonts\Sansation\Sansation-Light.ttf" />
+    <Font Include="Assets\Fonts\Sansation\Sansation-LightItalic.ttf" />
+    <Font Include="Assets\Fonts\Sansation\Sansation-Regular.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Assets\Fonts\Sansation\SIL Open Font License.txt" />
   </ItemGroup>
 </Project>

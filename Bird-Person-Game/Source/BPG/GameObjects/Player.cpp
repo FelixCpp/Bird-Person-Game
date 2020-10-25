@@ -1,5 +1,5 @@
 #include <BPG/GameObjects/Player.hpp>
-#include <BPG/Utils/MemoryImageCache.hpp>
+#include <BPG/Utils/MemoryCache.hpp>
 
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Window/Keyboard.hpp>
@@ -8,7 +8,7 @@ namespace GameObjects
 {
 
 	Player::Player() :
-		texture(Utils::MemoryImageCache::Get("Assets/Textures/Fox.png")),
+		texture(Utils::TextureMemoryCache::Get("Assets/Textures/Fox.png")),
 		sprite(),
 		velocity(0.f, 0.f),
 		direction(Direction::Right),

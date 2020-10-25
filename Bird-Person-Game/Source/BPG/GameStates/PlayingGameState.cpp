@@ -1,6 +1,6 @@
 #include <BPG/GameStates/PlayingGameState.hpp>
 
-#include <BPG/Utils/MemoryImageCache.hpp>
+#include <BPG/Utils/MemoryCache.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 
@@ -11,9 +11,10 @@ namespace GameStates
 		GameStateBase(application),
 		backgroundTexture(nullptr),
 		backgroundSprite(),
-		player()
+		player(),
+		frameRateCounter()
 	{
-		this->backgroundTexture = Utils::MemoryImageCache::Get("Assets/Textures/GrassBackground.jpg");
+		this->backgroundTexture = Utils::TextureMemoryCache::Get("Assets/Textures/GrassBackground.jpg");
 
 		if (auto texture = this->backgroundTexture)
 		{
@@ -22,6 +23,7 @@ namespace GameStates
 		}
 
 		this->player.setPosition((sf::Vector2f)this->window.getSize() / 2.f);
+		this->frameRateCounter.setPosition(sf::Vector2f(30.f, 30.f));
 	}
 	
 	void PlayingGameState::HandleInput(const sf::Event & event)
@@ -36,6 +38,7 @@ namespace GameStates
 	void PlayingGameState::Update(const sf::Time & deltaTime)
 	{
 		this->player.Update(deltaTime);
+		this->frameRateCounter.Count();
 	}
 	
 	void PlayingGameState::Draw() const
@@ -43,6 +46,7 @@ namespace GameStates
 		this->window.clear(sf::Color::Black);
 		this->window.draw(this->backgroundSprite);
 		this->window.draw(this->player);
+		this->window.draw(this->frameRateCounter);
 	}
 
 }

@@ -10,6 +10,7 @@ namespace Utils
 		window(sf::VideoMode(width, height), title, sf::Style::Close), // Fenster erstellen
 		gameStates() // leerer stack
 	{
+		this->window.setFramerateLimit(60u);
 	}
 	
 	void Application::Launch()
