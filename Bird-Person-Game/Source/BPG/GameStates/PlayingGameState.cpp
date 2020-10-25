@@ -3,6 +3,7 @@
 #include <BPG/Utils/MemoryCache.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
+#include <BPG/Utils/Application.hpp>
 
 namespace GameStates
 {
@@ -11,6 +12,7 @@ namespace GameStates
 		GameStateBase(application),
 		backgroundTexture(nullptr),
 		backgroundSprite(),
+		view(sf::Vector2f(0.f, 0.f), sf::Vector2f(application.GetWindow().getSize())),
 		player(),
 		frameRateCounter()
 	{
@@ -38,14 +40,18 @@ namespace GameStates
 	void PlayingGameState::Update(const sf::Time & deltaTime)
 	{
 		this->player.Update(deltaTime);
+		this->view.setCenter(this->player.getPosition());
+
 		this->frameRateCounter.Count();
 	}
 	
 	void PlayingGameState::Draw() const
 	{
 		this->window.clear(sf::Color::Black);
+		this->window.setView(this->view);
 		this->window.draw(this->backgroundSprite);
 		this->window.draw(this->player);
+		this->window.setView(this->window.getDefaultView());
 		this->window.draw(this->frameRateCounter);
 	}
 

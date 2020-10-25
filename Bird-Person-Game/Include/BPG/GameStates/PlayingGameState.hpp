@@ -8,6 +8,7 @@
 
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/View.hpp>
 
 namespace GameStates
 {
@@ -26,6 +27,7 @@ namespace GameStates
 
 		std::shared_ptr<sf::Texture> backgroundTexture;
 		sf::Sprite backgroundSprite;
+		sf::View view;
 
 		GameObjects::Player player;
 		GameObjects::FrameRateCounter frameRateCounter;
