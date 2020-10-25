@@ -172,7 +172,9 @@
     <ClInclude Include="Include\BPG\GameStates\PlayingGameState.hpp" />
     <ClInclude Include="Include\BPG\Utils\Animation.hpp" />
     <ClInclude Include="Include\BPG\Utils\Application.hpp" />
-    <ClInclude Include="Include\BPG\Utils\MemoryCache.hpp" />
+    <ClInclude Include="Include\BPG\Utils\Caches\MemoryCache.hpp" />
+    <ClInclude Include="Include\BPG\Utils\Caches\ResourceCache.hpp" />
+    <ClInclude Include="Include\BPG\Utils\Loaders\ResourceLoader.hpp" />
     <ClInclude Include="Include\BPG\Utils\StaticObject.hpp" />
   </ItemGroup>
   <ItemGroup>

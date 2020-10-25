@@ -1,6 +1,6 @@
 #include <BPG/GameStates/PlayingGameState.hpp>
 
-#include <BPG/Utils/MemoryCache.hpp>
+#include <BPG/Utils/Loaders/ResourceLoader.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <BPG/Utils/Application.hpp>
@@ -17,7 +17,7 @@ namespace GameStates
 		frameRateCounter(),
 		followPlayer(true)
 	{
-		this->backgroundTexture = Utils::TextureMemoryCache::get("Assets/Textures/GrassBackground.jpg");
+		this->backgroundTexture = Utils::Loaders::TextureLoader::get("Assets/Textures/GrassBackground.jpg");
 
 		if (auto texture = this->backgroundTexture)
 		{

@@ -1,16 +1,14 @@
 #include <BPG/GameObjects/Player.hpp>
-#include <BPG/Utils/MemoryCache.hpp>
+#include <BPG/Utils/Loaders/ResourceLoader.hpp>
 
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Window/Keyboard.hpp>
-
-#include <iostream>
 
 namespace GameObjects
 {
 
 	Player::Player() :
-		texture(Utils::TextureMemoryCache::get("Assets/Textures/Fox.png")),
+		texture(Utils::Loaders::TextureLoader::get("Assets/Textures/Fox.png")),
 		sprite(),
 		velocity(0.f, 0.f),
 		direction(Direction::WalkingRight),
@@ -18,6 +16,8 @@ namespace GameObjects
 	{
 		if (this->texture)
 		{
+			sf::Image image = this->texture->copyToImage();
+			image.getPixelsPtr();
 			this->sprite.setTexture(*this->texture);
 			this->sprite.setScale(2.f, 2.f);
 		}

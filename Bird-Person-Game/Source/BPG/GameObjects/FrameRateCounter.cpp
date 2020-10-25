@@ -1,6 +1,6 @@
 #include <BPG/GameObjects/FrameRateCounter.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
-#include <BPG/Utils/MemoryCache.hpp>
+#include <BPG/Utils/Loaders/ResourceLoader.hpp>
 
 namespace GameObjects
 {
@@ -14,7 +14,7 @@ namespace GameObjects
 		frameCount(0u),
 		fps(0.f)
 	{
-		if (this->font = Utils::FontMemoryCache::get("Assets/Fonts/Sansation/Sansation-Bold.ttf"))
+		if (this->font = Utils::Loaders::FontLoader::get("Assets/Fonts/Sansation/Sansation-Bold.ttf"))
 		{
 			this->text.setFont(*this->font);
 			this->text.setCharacterSize(32);

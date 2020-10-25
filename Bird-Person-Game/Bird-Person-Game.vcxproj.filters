@@ -70,10 +70,16 @@
     <ClInclude Include="Include\BPG\GameObjects\FrameRateCounter.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Include\BPG\Utils\MemoryCache.hpp">
+    <ClInclude Include="Include\BPG\GameObjects\Camera.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Include\BPG\GameObjects\Camera.hpp">
+    <ClInclude Include="Include\BPG\Utils\Caches\ResourceCache.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\BPG\Utils\Caches\MemoryCache.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\BPG\Utils\Loaders\ResourceLoader.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
