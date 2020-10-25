@@ -21,10 +21,15 @@ namespace GameObjects
 	private:
 
 		enum class Direction {
-			Left,
-			Right,
-			Up,
-			Down
+			WalkingLeft,
+			WalkingRight,
+			WalkingUp,
+			WalkingDown,
+
+			StandingLeft,
+			StandingRight,
+			StandingUp,
+			StandingDown
 		};
 
 	public:

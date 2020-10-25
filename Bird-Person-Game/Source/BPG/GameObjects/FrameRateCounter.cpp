@@ -14,7 +14,7 @@ namespace GameObjects
 		frameCount(0u),
 		fps(0.f)
 	{
-		if (this->font = Utils::FontMemoryCache::Get("Assets/Fonts/Sansation/Sansation-Regular.ttf"))
+		if (this->font = Utils::FontMemoryCache::Get("Assets/Fonts/Sansation/Sansation-Bold.ttf"))
 		{
 			this->text.setFont(*this->font);
 			this->text.setCharacterSize(32);
