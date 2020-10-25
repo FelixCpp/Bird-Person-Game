@@ -2,6 +2,6 @@
 
 int main()
 {
-	Utils::Application(1280, 720, "Bird-Person-Game")
+	Utils::Application(1024, 1024, "Bird-Person-Game")
 		.Launch();
 }

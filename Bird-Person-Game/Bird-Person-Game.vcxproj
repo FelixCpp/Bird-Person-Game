@@ -148,6 +148,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="Source\BPG\GameObjects\Player.cpp" />
     <ClCompile Include="Source\BPG\GameStates\GameStateBase.cpp" />
     <ClCompile Include="Source\BPG\GameStates\PlayingGameState.cpp" />
     <ClCompile Include="Source\BPG\Utils\Application.cpp" />
@@ -162,6 +163,7 @@
     <None Include="sfml-window-d-2.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Include\BPG\GameObjects\Player.hpp" />
     <ClInclude Include="Include\BPG\GameStates\GameStateBase.hpp" />
     <ClInclude Include="Include\BPG\GameStates\PlayingGameState.hpp" />
     <ClInclude Include="Include\BPG\Utils\Application.hpp" />
@@ -169,6 +171,7 @@
     <ClInclude Include="Include\BPG\Utils\StaticObject.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Assets\Textures\CharacterAnimationSpriteSheet.png" />
     <Image Include="Assets\Textures\InstagramLogo.png" />
     <Image Include="Assets\Textures\InstagramLogo2.png" />
   </ItemGroup>

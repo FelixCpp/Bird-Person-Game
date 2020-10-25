@@ -1,6 +1,12 @@
 #pragma once
 
+#include <memory>
+
 #include <BPG/GameStates/GameStateBase.hpp>
+#include <BPG/GameObjects/Player.hpp>
+
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/Sprite.hpp>
 
 namespace GameStates
 {
@@ -14,6 +20,13 @@ namespace GameStates
 		virtual void HandleInput(const sf::Event & event) override;
 		virtual void Update(const sf::Time & deltaTime) override;
 		virtual void Draw() const override;
+
+	private:
+
+		std::shared_ptr<sf::Texture> backgroundTexture;
+		sf::Sprite backgroundSprite;
+
+		GameObjects::Player player;
 
 	};
 

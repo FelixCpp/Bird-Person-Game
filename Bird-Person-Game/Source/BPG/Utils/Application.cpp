@@ -7,7 +7,7 @@ namespace Utils
 {
 
 	Application::Application(uint32_t width, uint32_t height, const std::string & title) :
-		window(sf::VideoMode(width, height), title), // Fenster erstellen
+		window(sf::VideoMode(width, height), title, sf::Style::Close), // Fenster erstellen
 		gameStates() // leerer stack
 	{
 	}
@@ -26,9 +26,16 @@ namespace Utils
 			while (this->window.pollEvent(event))
 			{
 				if (event.type == sf::Event::EventType::Closed)
+				{
 					this->window.close();
-				else
+				} else if (event.type == sf::Event::EventType::Resized)
+				{
+					sf::FloatRect visibleArea(0, 0, event.size.width, event.size.height);
+					window.setView(sf::View(visibleArea));
+				} else
+				{
 					state->HandleInput(event);
+				}
 			}
 
 			// Update & Draw mit der vergangenden Zeit seit dem letzen durchlauf

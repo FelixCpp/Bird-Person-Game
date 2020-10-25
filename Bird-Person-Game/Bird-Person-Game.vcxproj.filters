@@ -30,6 +30,9 @@
     <ClCompile Include="Source\BPG\GameStates\PlayingGameState.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="Source\BPG\GameObjects\Player.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="openal32.dll" />
@@ -55,12 +58,18 @@
     <ClInclude Include="Include\BPG\GameStates\PlayingGameState.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Include\BPG\GameObjects\Player.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Textures\InstagramLogo.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
     <Image Include="Assets\Textures\InstagramLogo2.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="Assets\Textures\CharacterAnimationSpriteSheet.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
   </ItemGroup>
