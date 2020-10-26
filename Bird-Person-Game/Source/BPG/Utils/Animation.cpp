@@ -4,7 +4,6 @@ namespace Utils
 {
 
 	Animation::Animation(const sf::Texture & texture, size_t cols, size_t rows, size_t startX, size_t lengthX, size_t startY, size_t lengthY) :
-		delay(sf::Time::Zero),
 		holdTime(sf::milliseconds(100)),
 		index(0u),
 		texture(texture),
@@ -25,12 +24,11 @@ namespace Utils
 		}
 	}
 
-	void Animation::update(const sf::Time & deltaTime)
+	void Animation::update()
 	{
-		this->delay += deltaTime;
-		if (this->delay >= this->holdTime)
+		if (this->clock.getElapsedTime() >= this->holdTime)
 		{
-			this->delay = sf::Time::Zero;
+			this->clock.restart();
 			this->advance();
 		}
 	}

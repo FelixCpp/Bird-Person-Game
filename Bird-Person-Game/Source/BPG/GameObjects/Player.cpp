@@ -26,7 +26,7 @@ namespace GameObjects
 	void Player::update(const sf::Time & deltaTime)
 	{
 		this->handleInput();
-		this->getAnimation().update(deltaTime);
+		this->getAnimation().update();
 		this->getAnimation().applyToSprite(this->sprite);
 
 		const sf::IntRect rect = this->sprite.getTextureRect();

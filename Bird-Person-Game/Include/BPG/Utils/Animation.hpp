@@ -7,6 +7,7 @@
 #include <SFML/Graphics/Text.hpp>
 #include <SFML/Graphics/Rect.hpp>
 #include <SFML/System/Time.hpp>
+#include <SFML/System/Clock.hpp>
 
 namespace Utils
 {
@@ -16,7 +17,7 @@ namespace Utils
 
 		explicit Animation(const sf::Texture & texture, size_t cols, size_t rows, size_t startX, size_t lengthX, size_t startY, size_t lengthY);
 
-		void update(const sf::Time & deltaTime);
+		void update();
 		void applyToSprite(sf::Sprite & sprite);
 
 	private:
@@ -25,7 +26,7 @@ namespace Utils
 		
 	private:
 
-		sf::Time delay;
+		sf::Clock clock;
 		sf::Time holdTime;
 
 		uint32_t index;
