@@ -68,7 +68,7 @@ namespace Utils
 		}
 	}
 
-	sf::RenderWindow & Application::getWindow()
+	Extensions::RenderWindow & Application::getWindow()
 	{
 		return this->window;
 	}

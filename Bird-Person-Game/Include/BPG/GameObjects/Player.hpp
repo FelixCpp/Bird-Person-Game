@@ -4,7 +4,7 @@
 #include <unordered_map>
 
 #include <BPG/Utils/Animation.hpp>
-#include <BPG/Maths/Vector2.hpp>
+#include <BPG/Extensions/Vector2.hpp>
 
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Transformable.hpp>

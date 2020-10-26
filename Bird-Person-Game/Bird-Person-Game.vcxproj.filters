@@ -36,7 +36,10 @@
     <ClCompile Include="Source\BPG\GameObjects\FrameRateCounter.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="Source\BPG\GameObjects\Camera.cpp">
+    <ClCompile Include="Source\BPG\Extensions\View.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BPG\Extensions\RenderWindow.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -47,6 +50,9 @@
     <None Include="sfml-network-d-2.dll" />
     <None Include="sfml-system-d-2.dll" />
     <None Include="sfml-window-d-2.dll" />
+    <None Include="Assets\Cursors\aerowedge.cur">
+      <Filter>Ressourcendateien</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Include\BPG\Utils\StaticObject.hpp">
@@ -70,9 +76,6 @@
     <ClInclude Include="Include\BPG\GameObjects\FrameRateCounter.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Include\BPG\GameObjects\Camera.hpp">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="Include\BPG\Utils\Caches\ResourceCache.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -82,7 +85,13 @@
     <ClInclude Include="Include\BPG\Utils\Loaders\ResourceLoader.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Include\BPG\Maths\Vector2.hpp">
+    <ClInclude Include="Include\BPG\Extensions\Vector2.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\BPG\Extensions\View.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\BPG\Extensions\RenderWindow.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

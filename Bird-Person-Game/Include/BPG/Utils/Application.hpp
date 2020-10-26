@@ -7,6 +7,7 @@
 #include <SFML/Graphics/RenderWindow.hpp>
 
 #include <BPG/GameStates/GameStateBase.hpp>
+#include <BPG/Extensions/RenderWindow.hpp>
 
 namespace Utils
 {
@@ -21,11 +22,11 @@ namespace Utils
 		void pushState(std::unique_ptr<GameStates::GameStateBase> state);
 		void popState();
 
-		sf::RenderWindow & getWindow();
+		Extensions::RenderWindow & getWindow();
 
 	private:
 
-		sf::RenderWindow window;
+		Extensions::RenderWindow window;
 		std::stack<std::unique_ptr<GameStates::GameStateBase>> gameStates;
 
 	};

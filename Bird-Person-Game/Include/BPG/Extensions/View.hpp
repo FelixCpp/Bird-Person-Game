@@ -7,16 +7,18 @@
 namespace GameObjects
 {
 
-	class Camera : public sf::View {
+	class View : public sf::View {
 
 		inline static constexpr float SPEED = 900.f;
 
 	public:
 
-		explicit Camera(const sf::RenderWindow & window);
+		explicit View(const sf::RenderWindow & window);
 
 		void handleInput(const sf::Time & deltaTime);
 
 	};
+
+	typedef View Camera;
 
 }
