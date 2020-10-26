@@ -16,8 +16,6 @@ namespace GameObjects
 	{
 		if (this->texture)
 		{
-			sf::Image image = this->texture->copyToImage();
-			image.getPixelsPtr();
 			this->sprite.setTexture(*this->texture);
 			this->sprite.setScale(2.f, 2.f);
 		}

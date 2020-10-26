@@ -40,8 +40,13 @@ namespace Utils
 			}
 
 			// Update & Draw mit der vergangenden Zeit seit dem letzen durchlauf
-			const sf::Time deltaTime = clock.restart();
-			state->update(deltaTime);
+			
+			if (this->window.hasFocus())
+			{
+				const sf::Time deltaTime = clock.restart();
+				state->update(deltaTime);
+			}
+
 			state->draw();
 
 			// catch window events

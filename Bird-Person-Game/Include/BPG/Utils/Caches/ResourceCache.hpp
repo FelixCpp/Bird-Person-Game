@@ -15,11 +15,8 @@ namespace Utils
 		template<class TResourceType>
 		struct ResourceCache {
 
-			using DataType = std::shared_ptr<TResourceType>;
-			using KeyType = std::string;
-
-			virtual void set(const KeyType & key, const DataType & texture) = 0;
-			virtual DataType get(const KeyType & key) const = 0;
+			virtual void set(const std::string & key, const std::shared_ptr<TResourceType> & resource) = 0;
+			virtual std::shared_ptr<TResourceType> get(const std::string & key) const = 0;
 
 		};
 
