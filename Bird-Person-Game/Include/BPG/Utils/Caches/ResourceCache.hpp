@@ -3,9 +3,6 @@
 #include <memory>
 #include <string>
 
-#include <SFML/Graphics/Texture.hpp>
-#include <SFML/Graphics/Font.hpp>
-
 namespace Utils
 {
 
@@ -19,9 +16,6 @@ namespace Utils
 			virtual std::shared_ptr<TResourceType> get(const std::string & key) const = 0;
 
 		};
-
-		typedef ResourceCache<sf::Texture> TextureCache;
-		typedef ResourceCache<sf::Font> FontCache;
 
 	}
 

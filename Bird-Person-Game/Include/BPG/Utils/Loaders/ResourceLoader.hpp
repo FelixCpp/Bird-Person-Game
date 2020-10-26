@@ -1,6 +1,9 @@
 #pragma once
 
 #include <BPG/Utils/Caches/MemoryCache.hpp>
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/Font.hpp>
+#include <SFML/Graphics/Image.hpp>
 
 namespace Utils
 {
@@ -39,6 +42,7 @@ namespace Utils
 
 		typedef ResourceLoader<sf::Texture> TextureLoader;
 		typedef ResourceLoader<sf::Font> FontLoader;
+		typedef ResourceLoader<sf::Image> ImageLoader;
 
 	}
 

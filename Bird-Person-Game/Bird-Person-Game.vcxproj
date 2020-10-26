@@ -186,6 +186,7 @@
     <ClInclude Include="Include\BPG\Utils\StaticObject.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="Assets\Cursors\Aerowedge.png" />
     <Image Include="Assets\Textures\CharacterAnimationSpriteSheet.png" />
     <Image Include="Assets\Textures\Fox.png" />
     <Image Include="Assets\Textures\GrassBackground.jpg" />

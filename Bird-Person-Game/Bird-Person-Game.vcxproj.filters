@@ -111,6 +111,9 @@
     <Image Include="Assets\Textures\GrassBackground.jpg">
       <Filter>Ressourcendateien</Filter>
     </Image>
+    <Image Include="Assets\Cursors\Aerowedge.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
   </ItemGroup>
   <ItemGroup>
     <Font Include="Assets\Fonts\Sansation\Sansation-Bold.ttf" />
