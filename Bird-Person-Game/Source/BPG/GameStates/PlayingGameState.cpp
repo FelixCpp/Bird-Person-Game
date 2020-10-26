@@ -14,7 +14,7 @@ namespace GameStates
 		backgroundSprite(),
 		camera(application.getWindow()),
 		player(),
-		forest(10, sf::FloatRect(1024 * 0.25, 1024 * 0.25, 1024 * 2 * 0.75, 1024 * 2 * 0.75)),
+		forest(),
 		frameRateCounter(),
 		followPlayer(true)
 	{
@@ -31,6 +31,12 @@ namespace GameStates
 
 		this->player.setPosition(this->backgroundSprite.getTextureRect().width / 2.f, this->backgroundSprite.getTextureRect().height / 2.f);
 		this->frameRateCounter.setPosition(sf::Vector2f(30.f, 30.f));
+
+		if (!this->forest.loadFromFile("Assets/WorldData/TreePositions.txt"))
+		{
+			// Failed to load the treepositions ...
+			return;
+		}
 	}
 	
 	void PlayingGameState::handleInput(const sf::Event & event)

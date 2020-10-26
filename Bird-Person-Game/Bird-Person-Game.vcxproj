@@ -214,6 +214,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Fonts\Sansation\SIL Open Font License.txt" />
+    <Text Include="Assets\WorldData\TreePositions.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

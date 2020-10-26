@@ -158,5 +158,6 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Assets\Fonts\Sansation\SIL Open Font License.txt" />
+    <Text Include="Assets\WorldData\TreePositions.txt" />
   </ItemGroup>
 </Project>

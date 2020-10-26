@@ -13,7 +13,9 @@ namespace GameObjects
 	class Forest : public sf::Drawable {
 	public:
 
-		explicit Forest(size_t treeCount, const sf::FloatRect & area);
+		Forest();
+
+		bool loadFromFile(const std::string & filepath);
 
 	protected:
 
@@ -21,11 +23,6 @@ namespace GameObjects
 
 	private:
 
-		void generateForest(size_t treeCount);
-
-	private:
-
-		sf::FloatRect area;
 		std::vector<Tree> trees;
 
 		mutable sf::RectangleShape boundary;

@@ -6,6 +6,7 @@
 #include <BPG/GameObjects/Player.hpp>
 #include <BPG/GameObjects/FrameRateCounter.hpp>
 #include <BPG/GameObjects/Forest.hpp>
+
 #include <BPG/Extensions/View.hpp>
 
 #include <SFML/Graphics/Texture.hpp>
