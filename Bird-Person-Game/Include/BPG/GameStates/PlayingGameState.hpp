@@ -5,7 +5,7 @@
 #include <BPG/GameStates/GameStateBase.hpp>
 #include <BPG/GameObjects/Player.hpp>
 #include <BPG/GameObjects/FrameRateCounter.hpp>
-#include <BPG/GameObjects/Tree.hpp>
+#include <BPG/GameObjects/Forest.hpp>
 #include <BPG/Extensions/View.hpp>
 
 #include <SFML/Graphics/Texture.hpp>
@@ -31,7 +31,7 @@ namespace GameStates
 		
 		GameObjects::Camera camera;
 		GameObjects::Player player;
-		GameObjects::Tree tree;
+		GameObjects::Forest forest;
 		GameObjects::FrameRateCounter frameRateCounter;
 
 		bool followPlayer;

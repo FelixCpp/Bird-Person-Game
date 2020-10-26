@@ -15,6 +15,10 @@ namespace GameObjects
 
 		explicit Tree(const sf::Vector2f & position);
 
+	protected:
+
+		virtual const sf::Drawable & getDrawable() const override;
+
 	private:
 
 		std::shared_ptr<sf::Texture> texture;

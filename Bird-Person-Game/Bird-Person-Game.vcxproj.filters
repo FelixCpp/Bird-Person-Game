@@ -48,6 +48,12 @@
     <ClCompile Include="Source\BPG\GameObjects\GameObject.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="Source\BPG\GameObjects\Forest.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BPG\Maths\Random.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="openal32.dll" />
@@ -106,6 +112,12 @@
     <ClInclude Include="Include\BPG\GameObjects\GameObject.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Include\BPG\GameObjects\Forest.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\BPG\Maths\Random.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Textures\InstagramLogo.png">
@@ -130,6 +142,9 @@
       <Filter>Ressourcendateien</Filter>
     </Image>
     <Image Include="Assets\Textures\Trees.png">
+      <Filter>Ressourcendateien</Filter>
+    </Image>
+    <Image Include="Assets\Icons\GameIcon.png">
       <Filter>Ressourcendateien</Filter>
     </Image>
   </ItemGroup>

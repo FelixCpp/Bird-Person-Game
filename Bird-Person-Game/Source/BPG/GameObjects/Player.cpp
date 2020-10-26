@@ -7,14 +7,13 @@ namespace GameObjects
 {
 
 	Player::Player() :
-		GameObject(this->sprite),
-		texture(Utils::Loaders::TextureLoader::get("Assets/Textures/Fox.png")),
+		texture(nullptr),
 		sprite(),
 		velocity(0.f, 0.f),
 		direction(Direction::WalkingRight),
 		animations()
 	{
-		if (this->texture)
+		if (this->texture = Utils::Loaders::TextureLoader::get("Assets/Textures/Fox.png"))
 		{
 			this->sprite.setTexture(*this->texture);
 		}
@@ -35,6 +34,11 @@ namespace GameObjects
 
 		this->move(this->velocity * deltaTime.asSeconds());
 		this->velocity.x = this->velocity.y = 0.f;
+	}
+
+	const sf::Drawable & Player::getDrawable() const
+	{
+		return this->sprite;
 	}
 
 	Utils::Animation & Player::getAnimation()

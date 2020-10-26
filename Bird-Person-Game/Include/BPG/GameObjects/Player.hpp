@@ -39,6 +39,10 @@ namespace GameObjects
 
 		void update(const sf::Time & deltaTime);
 
+	protected:
+
+		virtual const sf::Drawable & getDrawable() const override;
+
 	private:
 
 		Utils::Animation & getAnimation();

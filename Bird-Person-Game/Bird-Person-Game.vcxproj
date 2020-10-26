@@ -154,12 +154,14 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Source\BPG\Extensions\RenderWindow.cpp" />
     <ClCompile Include="Source\BPG\Extensions\View.cpp" />
+    <ClCompile Include="Source\BPG\GameObjects\Forest.cpp" />
     <ClCompile Include="Source\BPG\GameObjects\FrameRateCounter.cpp" />
     <ClCompile Include="Source\BPG\GameObjects\GameObject.cpp" />
     <ClCompile Include="Source\BPG\GameObjects\Player.cpp" />
     <ClCompile Include="Source\BPG\GameObjects\Tree.cpp" />
     <ClCompile Include="Source\BPG\GameStates\GameStateBase.cpp" />
     <ClCompile Include="Source\BPG\GameStates\PlayingGameState.cpp" />
+    <ClCompile Include="Source\BPG\Maths\Random.cpp" />
     <ClCompile Include="Source\BPG\Utils\Animation.cpp" />
     <ClCompile Include="Source\BPG\Utils\Application.cpp" />
   </ItemGroup>
@@ -175,6 +177,7 @@
   <ItemGroup>
     <ClInclude Include="Include\BPG\Extensions\RenderWindow.hpp" />
     <ClInclude Include="Include\BPG\Extensions\View.hpp" />
+    <ClInclude Include="Include\BPG\GameObjects\Forest.hpp" />
     <ClInclude Include="Include\BPG\GameObjects\FrameRateCounter.hpp" />
     <ClInclude Include="Include\BPG\GameObjects\GameObject.hpp" />
     <ClInclude Include="Include\BPG\GameObjects\Player.hpp" />
@@ -182,6 +185,7 @@
     <ClInclude Include="Include\BPG\GameStates\GameStateBase.hpp" />
     <ClInclude Include="Include\BPG\GameStates\PlayingGameState.hpp" />
     <ClInclude Include="Include\BPG\Extensions\Vector2.hpp" />
+    <ClInclude Include="Include\BPG\Maths\Random.hpp" />
     <ClInclude Include="Include\BPG\Utils\Animation.hpp" />
     <ClInclude Include="Include\BPG\Utils\Application.hpp" />
     <ClInclude Include="Include\BPG\Utils\Caches\MemoryCache.hpp" />
@@ -191,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Cursors\Aerowedge.png" />
+    <Image Include="Assets\Icons\GameIcon.png" />
     <Image Include="Assets\Textures\CharacterAnimationSpriteSheet.png" />
     <Image Include="Assets\Textures\Fox.png" />
     <Image Include="Assets\Textures\GrassBackground.jpg" />

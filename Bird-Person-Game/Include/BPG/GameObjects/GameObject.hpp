@@ -7,14 +7,18 @@ namespace GameObjects
 {
 
 	class GameObject : public sf::Drawable, public sf::Transformable {
+	public:
+
+		virtual ~GameObject() = default;
+
 	protected:
 
-		explicit GameObject(sf::Drawable& drawable);
-		virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+		GameObject() = default;
 
-	private:
-
-		sf::Drawable& drawable;
+	protected:
+		
+		virtual const sf::Drawable & getDrawable() const = 0;
+		virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const override;
 
 	};
 

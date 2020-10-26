@@ -14,7 +14,7 @@ namespace GameStates
 		backgroundSprite(),
 		camera(application.getWindow()),
 		player(),
-		tree(sf::Vector2f(1000.f, 1000.f)),
+		forest(10, sf::FloatRect(1024 * 0.25, 1024 * 0.25, 1024 * 2 * 0.75, 1024 * 2 * 0.75)),
 		frameRateCounter(),
 		followPlayer(true)
 	{
@@ -26,10 +26,10 @@ namespace GameStates
 			texture->setRepeated(true);
 
 			this->backgroundSprite.setTexture(*texture);
-			this->backgroundSprite.setTextureRect(sf::IntRect(-3000, -3000, 6000, 6000));
+			this->backgroundSprite.setTextureRect(sf::IntRect(0, 0, 1024 * 2, 1024 * 2));
 		}
 
-		this->player.setPosition((sf::Vector2f)this->window.getSize() / 2.f);
+		this->player.setPosition(this->backgroundSprite.getTextureRect().width / 2.f, this->backgroundSprite.getTextureRect().height / 2.f);
 		this->frameRateCounter.setPosition(sf::Vector2f(30.f, 30.f));
 	}
 	
@@ -91,7 +91,7 @@ namespace GameStates
 		// Alles was mit der view bewegt werden soll ...
 		this->window.draw(this->backgroundSprite);
 		this->window.draw(this->player);
-		this->window.draw(this->tree);
+		this->window.draw(this->forest);
 		// ----------------------------------------------
 		this->window.setView(this->window.getDefaultView());
 
