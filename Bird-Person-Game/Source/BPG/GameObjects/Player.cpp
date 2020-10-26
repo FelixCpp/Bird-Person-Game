@@ -1,13 +1,13 @@
 #include <BPG/GameObjects/Player.hpp>
 #include <BPG/Utils/Loaders/ResourceLoader.hpp>
 
-#include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Window/Keyboard.hpp>
 
 namespace GameObjects
 {
 
 	Player::Player() :
+		GameObject(this->sprite),
 		texture(Utils::Loaders::TextureLoader::get("Assets/Textures/Fox.png")),
 		sprite(),
 		velocity(0.f, 0.f),
@@ -17,9 +17,9 @@ namespace GameObjects
 		if (this->texture)
 		{
 			this->sprite.setTexture(*this->texture);
-			this->sprite.setScale(2.f, 2.f);
 		}
 
+		this->setScale(2.f, 2.f);
 		this->initializeAnimations();
 	}
 
@@ -35,12 +35,6 @@ namespace GameObjects
 
 		this->move(this->velocity * deltaTime.asSeconds());
 		this->velocity.x = this->velocity.y = 0.f;
-	}
-
-	void Player::draw(sf::RenderTarget & target, sf::RenderStates states) const
-	{
-		states.transform *= this->getTransform();
-		target.draw(this->sprite, states);
 	}
 
 	Utils::Animation & Player::getAnimation()

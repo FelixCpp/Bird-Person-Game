@@ -14,6 +14,7 @@ namespace GameStates
 		backgroundSprite(),
 		camera(application.getWindow()),
 		player(),
+		tree(sf::Vector2f(1000.f, 1000.f)),
 		frameRateCounter(),
 		followPlayer(true)
 	{
@@ -90,6 +91,7 @@ namespace GameStates
 		// Alles was mit der view bewegt werden soll ...
 		this->window.draw(this->backgroundSprite);
 		this->window.draw(this->player);
+		this->window.draw(this->tree);
 		// ----------------------------------------------
 		this->window.setView(this->window.getDefaultView());
 

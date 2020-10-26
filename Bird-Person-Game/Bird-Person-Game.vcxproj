@@ -155,7 +155,9 @@
     <ClCompile Include="Source\BPG\Extensions\RenderWindow.cpp" />
     <ClCompile Include="Source\BPG\Extensions\View.cpp" />
     <ClCompile Include="Source\BPG\GameObjects\FrameRateCounter.cpp" />
+    <ClCompile Include="Source\BPG\GameObjects\GameObject.cpp" />
     <ClCompile Include="Source\BPG\GameObjects\Player.cpp" />
+    <ClCompile Include="Source\BPG\GameObjects\Tree.cpp" />
     <ClCompile Include="Source\BPG\GameStates\GameStateBase.cpp" />
     <ClCompile Include="Source\BPG\GameStates\PlayingGameState.cpp" />
     <ClCompile Include="Source\BPG\Utils\Animation.cpp" />
@@ -174,7 +176,9 @@
     <ClInclude Include="Include\BPG\Extensions\RenderWindow.hpp" />
     <ClInclude Include="Include\BPG\Extensions\View.hpp" />
     <ClInclude Include="Include\BPG\GameObjects\FrameRateCounter.hpp" />
+    <ClInclude Include="Include\BPG\GameObjects\GameObject.hpp" />
     <ClInclude Include="Include\BPG\GameObjects\Player.hpp" />
+    <ClInclude Include="Include\BPG\GameObjects\Tree.hpp" />
     <ClInclude Include="Include\BPG\GameStates\GameStateBase.hpp" />
     <ClInclude Include="Include\BPG\GameStates\PlayingGameState.hpp" />
     <ClInclude Include="Include\BPG\Extensions\Vector2.hpp" />
@@ -192,6 +196,8 @@
     <Image Include="Assets\Textures\GrassBackground.jpg" />
     <Image Include="Assets\Textures\InstagramLogo.png" />
     <Image Include="Assets\Textures\InstagramLogo2.png" />
+    <Image Include="Assets\Textures\Tree.png" />
+    <Image Include="Assets\Textures\Trees.png" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="Assets\Fonts\Sansation\Sansation-Bold.ttf" />

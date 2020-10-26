@@ -5,9 +5,8 @@
 
 #include <BPG/Utils/Animation.hpp>
 #include <BPG/Extensions/Vector2.hpp>
+#include <BPG/GameObjects/GameObject.hpp>
 
-#include <SFML/Graphics/Drawable.hpp>
-#include <SFML/Graphics/Transformable.hpp>
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/System/Time.hpp>
@@ -15,7 +14,7 @@
 namespace GameObjects
 {
 
-	class Player : public sf::Drawable, public sf::Transformable {
+	class Player : public GameObject {
 		
 		inline static constexpr float WALKING_SPEED = 500.f;
 		inline static constexpr float SPRINTING_SPEED = WALKING_SPEED * 1.5f;
@@ -39,10 +38,6 @@ namespace GameObjects
 		Player();
 
 		void update(const sf::Time & deltaTime);
-		
-	protected:
-
-		virtual void draw(sf::RenderTarget & target, sf::RenderStates states) const override;
 
 	private:
 
