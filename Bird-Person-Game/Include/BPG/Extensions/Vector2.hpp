@@ -2,7 +2,7 @@
 
 #include <SFML/System/Vector2.hpp>
 
-namespace Maths
+namespace Extensions
 {
 
 	template<typename T>
@@ -52,4 +52,13 @@ namespace Maths
 	typedef Vector2<int32_t> Vector2i;
 	typedef Vector2<uint32_t> Vector2u;
 
+}
+
+namespace sf
+{
+	template<typename T>
+	Vector2<T> operator*(const Vector2<T> & lhs, const Vector2<T> & rhs)
+	{
+		return Vector2<T>(lhs.x * rhs.x, lhs.y * rhs.y);
+	}
 }

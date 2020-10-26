@@ -13,7 +13,7 @@ namespace GameObjects
 
 	void View::handleInput(const sf::Time & deltaTime)
 	{
-		Maths::Vector2f velocity(0.f, 0.f);
+		Extensions::Vector2f velocity(0.f, 0.f);
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
 		{

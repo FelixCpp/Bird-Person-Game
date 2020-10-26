@@ -5,6 +5,7 @@
 #include <BPG/GameObjects/Tree.hpp>
 
 #include <SFML/Graphics/Drawable.hpp>
+#include <SFML/Graphics/RectangleShape.hpp>
 
 namespace GameObjects
 {
@@ -26,6 +27,8 @@ namespace GameObjects
 
 		sf::FloatRect area;
 		std::vector<Tree> trees;
+
+		mutable sf::RectangleShape boundary;
 
 	};
 

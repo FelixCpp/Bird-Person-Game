@@ -8,7 +8,8 @@ namespace GameObjects
 
 	Forest::Forest(size_t treeCount, const sf::FloatRect & area) :
 		trees(),
-		area(area)
+		area(area),
+		boundary()
 	{
 		this->generateForest(treeCount);
 	}
@@ -16,7 +17,16 @@ namespace GameObjects
 	void Forest::draw(sf::RenderTarget & target, sf::RenderStates states) const
 	{
 		for (const Tree & tree : this->trees)
+		{
 			target.draw(tree, states);
+			
+			sf::FloatRect boundary = tree.getBoundary();
+			this->boundary.setPosition(boundary.left, boundary.top);
+			this->boundary.setSize(sf::Vector2f(boundary.width, boundary.height));
+			this->boundary.setFillColor(sf::Color::Transparent);
+			this->boundary.setOutlineThickness(3.f);
+			target.draw(this->boundary);
+		}
 	}
 
 	void Forest::generateForest(size_t treeCount)

@@ -14,6 +14,9 @@ namespace GameObjects
 	public:
 
 		explicit Tree(const sf::Vector2f & position);
+	
+		sf::Vector2f getSize() const;
+		sf::FloatRect getBoundary() const;
 
 	protected:
 

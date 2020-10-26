@@ -54,7 +54,7 @@ namespace GameObjects
 
 		std::shared_ptr<sf::Texture> texture;
 		sf::Sprite sprite;
-		Maths::Vector2f velocity;
+		Extensions::Vector2f velocity;
 
 		Direction direction;
 		std::unordered_map<Direction, Utils::Animation> animations;
