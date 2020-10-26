@@ -82,6 +82,9 @@
     <ClInclude Include="Include\BPG\Utils\Loaders\ResourceLoader.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="Include\BPG\Maths\Vector2.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Image Include="Assets\Textures\InstagramLogo.png">

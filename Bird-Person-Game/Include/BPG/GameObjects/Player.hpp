@@ -4,6 +4,7 @@
 #include <unordered_map>
 
 #include <BPG/Utils/Animation.hpp>
+#include <BPG/Maths/Vector2.hpp>
 
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Transformable.hpp>
@@ -16,7 +17,8 @@ namespace GameObjects
 
 	class Player : public sf::Drawable, public sf::Transformable {
 		
-		inline static constexpr float SPEED = 500.f;
+		inline static constexpr float WALKING_SPEED = 500.f;
+		inline static constexpr float SPRINTING_SPEED = WALKING_SPEED * 1.5f;
 
 	private:
 
@@ -53,7 +55,7 @@ namespace GameObjects
 
 		std::shared_ptr<sf::Texture> texture;
 		sf::Sprite sprite;
-		sf::Vector2f velocity;
+		Maths::Vector2f velocity;
 
 		Direction direction;
 		std::unordered_map<Direction, Utils::Animation> animations;

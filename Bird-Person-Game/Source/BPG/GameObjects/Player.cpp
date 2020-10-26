@@ -52,31 +52,36 @@ namespace GameObjects
 	{
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
 		{
-			this->velocity.y = -SPEED;
+			this->velocity.y = -1.f;
 			this->direction = Direction::WalkingUp;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
 		{
-			this->velocity.y = SPEED;
+			this->velocity.y = 1.f;
 			this->direction = Direction::WalkingDown;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
 		{
-			this->velocity.x = -SPEED;
+			this->velocity.x = -1.f;
 			this->direction = Direction::WalkingLeft;
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
 		{
-			this->velocity.x = SPEED;
+			this->velocity.x = 1.f;
 			this->direction = Direction::WalkingRight;
 		}
 
-		if (this->velocity.x == 0.f && this->velocity.y == 0.f)
+		bool standing = this->velocity.x == 0.f && this->velocity.y == 0.f;
+		if (standing)
 		{
 			if (this->direction == Direction::WalkingUp)    this->direction = Direction::StandingUp;
 			if (this->direction == Direction::WalkingDown)  this->direction = Direction::StandingDown;
 			if (this->direction == Direction::WalkingLeft)  this->direction = Direction::StandingLeft;
 			if (this->direction == Direction::WalkingRight) this->direction = Direction::StandingRight;
+		} else
+		{
+			const float speed = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift) ? SPRINTING_SPEED : WALKING_SPEED;
+			this->velocity.setLength(speed);
 		}
 	}
 

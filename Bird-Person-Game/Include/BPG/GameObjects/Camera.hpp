@@ -9,7 +9,7 @@ namespace GameObjects
 
 	class Camera : public sf::View {
 
-		inline static constexpr float SPEED = 800.f;
+		inline static constexpr float SPEED = 900.f;
 
 	public:
 

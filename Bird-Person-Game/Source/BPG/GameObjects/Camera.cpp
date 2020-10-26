@@ -1,4 +1,5 @@
 #include <BPG/GameObjects/Camera.hpp>
+#include <BPG/Maths/Vector2.hpp>
 
 #include <SFML/Window/Keyboard.hpp>
 
@@ -12,7 +13,7 @@ namespace GameObjects
 
 	void Camera::handleInput(const sf::Time & deltaTime)
 	{
-		sf::Vector2f velocity(0.f, 0.f);
+		Maths::Vector2f velocity(0.f, 0.f);
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
 		{
@@ -31,7 +32,8 @@ namespace GameObjects
 			velocity.x = 1.f;
 		}
 
-		this->move(velocity * SPEED * deltaTime.asSeconds());
+		velocity.setLength(SPEED * deltaTime.asSeconds());
+		this->move(velocity);
 	}
 
 }
