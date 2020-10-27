@@ -15,7 +15,7 @@ namespace Utils
 	class Animation {
 	public:
 
-		explicit Animation(const sf::Texture & texture, size_t cols, size_t rows, size_t startX, size_t lengthX, size_t startY, size_t lengthY);
+		explicit Animation(const sf::Texture & texture, uint32_t cols, uint32_t rows, uint32_t startX, uint32_t lengthX, uint32_t startY, uint32_t lengthY);
 
 		void setHoldTime(const sf::Time & holdTime);
 		

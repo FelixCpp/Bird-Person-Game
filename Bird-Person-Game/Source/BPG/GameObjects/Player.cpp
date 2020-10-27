@@ -142,7 +142,7 @@ namespace GameObjects
 			this->direction = Direction::WalkingRight;
 		}
 
-		bool standing = this->velocity.x == 0.f && this->velocity.y == 0.f;
+		const bool standing = this->velocity.x == 0.f && this->velocity.y == 0.f;
 		if (standing)
 		{
 			if (this->direction == Direction::WalkingUp)    this->direction = Direction::StandingUp;

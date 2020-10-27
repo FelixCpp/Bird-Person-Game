@@ -48,7 +48,7 @@ namespace GameStates
 				auto & args = event.mouseWheelScroll;
 				if (args.wheel == sf::Mouse::Wheel::VerticalWheel)
 				{
-					bool forwards = args.delta > 0;
+					const bool forwards = args.delta > 0;
 
 					if (forwards)
 					{
