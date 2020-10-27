@@ -17,7 +17,9 @@ namespace Utils
 
 		explicit Animation(const sf::Texture & texture, size_t cols, size_t rows, size_t startX, size_t lengthX, size_t startY, size_t lengthY);
 
-		void update();
+		void setHoldTime(const sf::Time & holdTime);
+		
+		void update(const sf::Time & deltaTime);
 		void applyToSprite(sf::Sprite & sprite);
 
 	private:
@@ -26,7 +28,7 @@ namespace Utils
 		
 	private:
 
-		sf::Clock clock;
+		sf::Time delay;
 		sf::Time holdTime;
 
 		uint32_t index;

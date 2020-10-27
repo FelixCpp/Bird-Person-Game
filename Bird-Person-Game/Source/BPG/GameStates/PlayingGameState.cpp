@@ -98,10 +98,7 @@ namespace GameStates
 		// ----------------------------------------------
 		// Alles was mit der view bewegt werden soll ...
 		this->window.draw(this->backgroundSprite);
-		
 		this->window.draw(this->player);
-		this->player.drawBoundary(this->window);
-
 		this->window.draw(this->forest);
 		// ----------------------------------------------
 		this->window.setView(this->window.getDefaultView());

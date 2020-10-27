@@ -30,7 +30,7 @@ namespace GameObjects
 	void Player::update(const sf::Time & deltaTime)
 	{
 		this->handleInput();
-		this->getAnimation().update();
+		this->getAnimation().update(deltaTime);
 		this->getAnimation().applyToSprite(*this);
 
 		const sf::IntRect rect = this->getTextureRect();
@@ -151,7 +151,17 @@ namespace GameObjects
 			if (this->direction == Direction::WalkingRight) this->direction = Direction::StandingRight;
 		} else
 		{
-			const float speed = sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift) ? SPRINTING_SPEED : WALKING_SPEED;
+			float speed = 0.f;
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::LShift))
+			{
+				speed = SPRINTING_SPEED;
+				this->getAnimation().setHoldTime(sf::milliseconds(50));
+			} else
+			{
+				speed = WALKING_SPEED;
+				this->getAnimation().setHoldTime(sf::milliseconds(100));
+			}
+
 			this->velocity.setLength(speed);
 		}
 	}

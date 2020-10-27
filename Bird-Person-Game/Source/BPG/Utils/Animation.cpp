@@ -24,11 +24,17 @@ namespace Utils
 		}
 	}
 
-	void Animation::update()
+	void Animation::setHoldTime(const sf::Time & holdTime)
 	{
-		if (this->clock.getElapsedTime() >= this->holdTime)
+		this->holdTime = holdTime;
+	}
+
+	void Animation::update(const sf::Time & deltaTime)
+	{
+		this->delay += deltaTime;
+		if (this->delay >= this->holdTime)
 		{
-			this->clock.restart();
+			this->delay = sf::Time::Zero;
 			this->advance();
 		}
 	}
