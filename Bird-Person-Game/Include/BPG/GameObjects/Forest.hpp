@@ -6,7 +6,6 @@
 #include <BPG/Maths/BoundaryComponent.hpp>
 
 #include <SFML/Graphics/Drawable.hpp>
-#include <SFML/Graphics/RectangleShape.hpp>
 
 namespace GameObjects
 {
@@ -27,8 +26,6 @@ namespace GameObjects
 	private:
 
 		std::vector<Tree> trees;
-
-		mutable sf::RectangleShape boundary;
 
 	};
 

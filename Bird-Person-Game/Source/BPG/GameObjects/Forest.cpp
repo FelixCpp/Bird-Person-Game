@@ -11,8 +11,7 @@ namespace GameObjects
 {
 
 	Forest::Forest() :
-		trees(),
-		boundary()
+		trees()
 	{
 	}
 
@@ -32,7 +31,7 @@ namespace GameObjects
 			float x = 0.f, y = 0.f;
 			reader >> x >> y;
 			
-			this->trees.push_back(Tree(sf::Vector2f(x, y)));
+			this->trees.push_back(Tree(Maths::FVector2(x, y)));
 		}
 
 		reader.close();

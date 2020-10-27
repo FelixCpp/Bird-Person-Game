@@ -1,11 +1,10 @@
 #include <BPG/GameObjects/Tree.hpp>
 #include <BPG/Utils/Loaders/ResourceLoader.hpp>
-#include <BPG/Extensions/Vector2.hpp>
 
 namespace GameObjects
 {
 
-	Tree::Tree(const sf::Vector2f& position) :
+	Tree::Tree(const Maths::FVector2 & position) :
 		texture(nullptr)
 	{
 		if (this->texture = Utils::Loaders::TextureLoader::get("Assets/Textures/Tree.png")) {
@@ -13,7 +12,7 @@ namespace GameObjects
 			this->setOrigin((sf::Vector2f)this->texture->getSize() / 2.f);
 		}
 
-		this->setPosition(position);
+		this->setPosition(position.toSFVector2());
 		this->setScale(5.f, 5.f);
 	}
 
