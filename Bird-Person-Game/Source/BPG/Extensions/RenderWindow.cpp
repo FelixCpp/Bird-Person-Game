@@ -6,8 +6,8 @@
 namespace Extensions
 {
 
-	RenderWindow::RenderWindow(const sf::VideoMode & mode, const std::string & title, uint32_t style, const sf::ContextSettings & settings) :
-		sf::RenderWindow(mode, title, style, settings),
+	RenderWindow::RenderWindow(const sf::VideoMode & mode, const std::string & title, uint32_t style) :
+		sf::RenderWindow(mode, title, style),
 		cursor()
 	{
 		this->initializeComponents();
