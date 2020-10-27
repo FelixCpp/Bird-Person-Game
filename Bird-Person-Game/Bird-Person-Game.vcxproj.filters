@@ -45,13 +45,13 @@
     <ClCompile Include="Source\BPG\GameObjects\Tree.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="Source\BPG\GameObjects\GameObject.cpp">
-      <Filter>Quelldateien</Filter>
-    </ClCompile>
     <ClCompile Include="Source\BPG\GameObjects\Forest.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
     <ClCompile Include="Source\BPG\Maths\Random.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
+    <ClCompile Include="Source\BPG\Maths\BoundaryComponent.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -109,13 +109,13 @@
     <ClInclude Include="Include\BPG\GameObjects\Tree.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Include\BPG\GameObjects\GameObject.hpp">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="Include\BPG\GameObjects\Forest.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Include\BPG\Maths\Random.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\BPG\Maths\BoundaryComponent.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

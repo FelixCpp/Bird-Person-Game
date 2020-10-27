@@ -2,6 +2,7 @@
 #include <BPG/Maths/Random.hpp>
 
 #include <SFML/Graphics/RenderTarget.hpp>
+#include <BPG/GameObjects/Player.hpp>
 
 #include <fstream>
 #include <iostream>
@@ -39,18 +40,27 @@ namespace GameObjects
 		return true;
 	}
 
+	void Forest::handleCollision(Maths::BoundaryComponent & boundary)
+	{
+		for (const Tree & tree : this->trees)
+		{
+			if (tree.getBoundary().intersects(boundary.getBoundary()))
+			{
+				boundary.onCollision(tree);
+				break;
+			} else
+			{
+				boundary.onCollisionFreed();
+			}
+		}
+	}
+
 	void Forest::draw(sf::RenderTarget & target, sf::RenderStates states) const
 	{
 		for (const Tree & tree : this->trees)
 		{
 			target.draw(tree, states);
-			
-			sf::FloatRect boundary = tree.getBoundary();
-			this->boundary.setPosition(boundary.left, boundary.top);
-			this->boundary.setSize(sf::Vector2f(boundary.width, boundary.height));
-			this->boundary.setFillColor(sf::Color::Transparent);
-			this->boundary.setOutlineThickness(3.f);
-			target.draw(this->boundary);
+			//tree.drawBoundary(target);
 		}
 	}
 

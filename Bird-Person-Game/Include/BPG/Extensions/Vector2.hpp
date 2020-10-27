@@ -46,6 +46,14 @@ namespace Extensions
 			return *this;
 		}
 
+		T distance(const Vector2 & other) const
+		{
+			const float xDiff = this->x - other.x;
+			const float yDiff = this->y - other.y;
+
+			return std::sqrt(xDiff * xDiff + yDiff * yDiff);
+		}
+
 	};
 
 	typedef Vector2<float> Vector2f;

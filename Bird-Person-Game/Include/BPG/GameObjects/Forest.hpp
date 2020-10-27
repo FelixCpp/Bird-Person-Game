@@ -3,6 +3,7 @@
 #include <vector>
 
 #include <BPG/GameObjects/Tree.hpp>
+#include <BPG/Maths/BoundaryComponent.hpp>
 
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
@@ -16,6 +17,8 @@ namespace GameObjects
 		Forest();
 
 		bool loadFromFile(const std::string & filepath);
+
+		void handleCollision(Maths::BoundaryComponent & boundary);
 
 	protected:
 
