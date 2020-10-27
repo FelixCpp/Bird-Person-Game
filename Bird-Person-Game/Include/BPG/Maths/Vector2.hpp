@@ -39,12 +39,6 @@ namespace Maths
 		{
 		}
 
-		inline Vector2(const sf::Vector2<T> & sfVector2) :
-			x(sfVector2.x),
-			y(sfVector2.y)
-		{
-		}
-
 		inline T lengthSq() const
 		{
 			return (this->x * this->x) + (this->y * this->y);
@@ -73,6 +67,11 @@ namespace Maths
 		inline double heading() const
 		{
 			return std::atan2((double)this->y, (double)this->x);
+		}
+
+		inline Vector2 & setLength(T newLength)
+		{
+			return this->normalize() *= newLength;
 		}
 
 		inline Vector2 & normalize()
@@ -126,6 +125,11 @@ namespace Maths
 		inline sf::Vector2<T> toSFVector2() const
 		{
 			return sf::Vector2<T>(this->x, this->y);
+		}
+
+		static Vector2 FromSFVector2(const sf::Vector2<T> & sfVector2)
+		{
+			return Vector2(sfVector2.x, sfVector2.y);
 		}
 
 	};

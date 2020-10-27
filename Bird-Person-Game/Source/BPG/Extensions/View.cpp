@@ -1,5 +1,5 @@
 #include <BPG/Extensions/View.hpp>
-#include <BPG/Extensions/Vector2.hpp>
+#include <BPG/Maths/Vector2.hpp>
 
 #include <SFML/Window/Keyboard.hpp>
 
@@ -13,7 +13,7 @@ namespace GameObjects
 
 	void View::handleInput(const sf::Time & deltaTime)
 	{
-		Extensions::Vector2f velocity(0.f, 0.f);
+		Maths::FVector2 velocity(0.f, 0.f);
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
 		{
@@ -33,7 +33,7 @@ namespace GameObjects
 		}
 
 		velocity.setLength(SPEED * deltaTime.asSeconds());
-		this->move(velocity);
+		this->move(velocity.toSFVector2());
 	}
 
 }

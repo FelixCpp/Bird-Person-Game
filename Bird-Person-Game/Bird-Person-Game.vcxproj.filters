@@ -97,9 +97,6 @@
     <ClInclude Include="Include\BPG\Utils\Loaders\ResourceLoader.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Include\BPG\Extensions\Vector2.hpp">
-      <Filter>Headerdateien</Filter>
-    </ClInclude>
     <ClInclude Include="Include\BPG\Extensions\View.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
@@ -116,6 +113,9 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Include\BPG\Maths\BoundaryComponent.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\BPG\Maths\Vector2.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

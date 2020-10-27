@@ -5,7 +5,7 @@
 
 #include <BPG/Utils/Animation.hpp>
 #include <BPG/Maths/BoundaryComponent.hpp>
-#include <BPG/Extensions/Vector2.hpp>
+#include <BPG/Maths/Vector2.hpp>
 
 #include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/Sprite.hpp>
@@ -53,7 +53,7 @@ namespace GameObjects
 	private:
 
 		std::shared_ptr<sf::Texture> texture;
-		Extensions::Vector2f velocity;
+		Maths::FVector2 velocity;
 
 		Direction direction;
 		std::unordered_map<Direction, Utils::Animation> animations;

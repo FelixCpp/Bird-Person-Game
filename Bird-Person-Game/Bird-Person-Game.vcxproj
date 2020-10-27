@@ -183,9 +183,9 @@
     <ClInclude Include="Include\BPG\GameObjects\Tree.hpp" />
     <ClInclude Include="Include\BPG\GameStates\GameStateBase.hpp" />
     <ClInclude Include="Include\BPG\GameStates\PlayingGameState.hpp" />
-    <ClInclude Include="Include\BPG\Extensions\Vector2.hpp" />
     <ClInclude Include="Include\BPG\Maths\BoundaryComponent.hpp" />
     <ClInclude Include="Include\BPG\Maths\Random.hpp" />
+    <ClInclude Include="Include\BPG\Maths\Vector2.hpp" />
     <ClInclude Include="Include\BPG\Utils\Animation.hpp" />
     <ClInclude Include="Include\BPG\Utils\Application.hpp" />
     <ClInclude Include="Include\BPG\Utils\Caches\MemoryCache.hpp" />

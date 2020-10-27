@@ -37,8 +37,9 @@ namespace GameObjects
 		const sf::Vector2f size(rect.width / 2.f, rect.height / 2.f);
 		this->setOrigin(size);
 
-		this->move(this->velocity * deltaTime.asSeconds());
-		this->velocity.x = this->velocity.y = 0.f;
+		const Maths::FVector2 change = this->velocity * deltaTime.asSeconds();
+		this->move(change.toSFVector2());
+		this->velocity *= 0.f;
 	}
 
 	sf::FloatRect Player::getBoundary() const
@@ -110,7 +111,7 @@ namespace GameObjects
 
 	void Player::onCollisionFreed()
 	{
-		this->setColor(sf::Color::White);
+
 	}
 
 	Utils::Animation & Player::getAnimation()
