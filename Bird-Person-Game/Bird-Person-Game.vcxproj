@@ -163,6 +163,7 @@
     <ClCompile Include="Source\BPG\GameStates\GameStateBase.cpp" />
     <ClCompile Include="Source\BPG\GameStates\PlayingGameState.cpp" />
     <ClCompile Include="Source\BPG\Maths\BoundaryComponent.cpp" />
+    <ClCompile Include="Source\BPG\Maths\CollisionHandler.cpp" />
     <ClCompile Include="Source\BPG\Maths\Random.cpp" />
     <ClCompile Include="Source\BPG\Utils\Animation.cpp" />
     <ClCompile Include="Source\BPG\Utils\Application.cpp" />
@@ -186,6 +187,7 @@
     <ClInclude Include="Include\BPG\GameStates\GameStateBase.hpp" />
     <ClInclude Include="Include\BPG\GameStates\PlayingGameState.hpp" />
     <ClInclude Include="Include\BPG\Maths\BoundaryComponent.hpp" />
+    <ClInclude Include="Include\BPG\Maths\CollisionHandler.hpp" />
     <ClInclude Include="Include\BPG\Maths\Random.hpp" />
     <ClInclude Include="Include\BPG\Maths\Vector2.hpp" />
     <ClInclude Include="Include\BPG\Utils\Animation.hpp" />

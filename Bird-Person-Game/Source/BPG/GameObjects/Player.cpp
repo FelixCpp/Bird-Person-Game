@@ -1,5 +1,7 @@
 #include <BPG/GameObjects/Player.hpp>
 
+#include <BPG/Maths/CollisionHandler.hpp>
+
 #include <BPG/Utils/Loaders/ResourceLoader.hpp>
 
 #include <SFML/Window/Keyboard.hpp>
@@ -56,57 +58,8 @@ namespace GameObjects
 
 	void Player::onCollision(const BoundaryComponent & boundary)
 	{
-		const sf::FloatRect & treeBoundary = boundary.getBoundary();
-		const sf::FloatRect playerBoundary = this->getBoundary();
-
-		const float treeX = treeBoundary.left, treeY = treeBoundary.top;
-		const float treeW = treeBoundary.width, treeH = treeBoundary.height;
-
-		const float playerX = playerBoundary.left, playerY = playerBoundary.top;
-		const float playerW = playerBoundary.width, playerH = playerBoundary.height;
-
-		const float treeCenterX = treeX + treeW / 2.f;
-		const float treeCenterY = treeY + treeH / 2.f;
-
-		const float playerCenterX = playerX + playerW / 2.f;
-		const float playerCenterY = playerY + playerH / 2.f;
-
-		const float xDiff = std::abs(treeCenterX - playerCenterX);
-		const float yDiff = std::abs(treeCenterY - playerCenterY);
-
-		if (xDiff > yDiff)
-		{
-			float moveX = 0.f;
-
-			// Horizontal pushen
-			if (playerCenterX > treeCenterX)
-			{
-				// Nach rechts pushen
-				moveX = playerW / 2.f + treeW / 2.f - xDiff;
-			} else
-			{
-				// Nach links pushen
-				moveX = -(playerW / 2.f + treeW / 2.f - xDiff);
-			}
-
-			this->move(moveX, 0.f);
-		} else
-		{
-			float moveY = 0.f;
-
-			// Vertikal pushen
-			if (playerCenterY > treeCenterY)
-			{
-				// Nach unten pushen
-				moveY = playerH / 2.f + treeH / 2.f - yDiff;
-			} else
-			{
-				// Nach oben pushen
-				moveY = -(playerH / 2.f + treeH / 2.f - yDiff);
-			}
-
-			this->move(0.f, moveY);
-		}
+		const Maths::FVector2 toMove = Maths::CollisionHandler::getOverlap(*this, boundary);
+		this->move(toMove.toSFVector2());
 	}
 
 	void Player::onCollisionFreed()

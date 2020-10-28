@@ -54,6 +54,9 @@
     <ClCompile Include="Source\BPG\Maths\BoundaryComponent.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="Source\BPG\Maths\CollisionHandler.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="openal32.dll" />
@@ -116,6 +119,9 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Include\BPG\Maths\Vector2.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\BPG\Maths\CollisionHandler.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
