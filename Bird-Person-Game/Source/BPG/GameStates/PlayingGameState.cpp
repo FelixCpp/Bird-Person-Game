@@ -10,100 +10,51 @@ namespace GameStates
 
 	PlayingGameState::PlayingGameState(Utils::Application & application) :
 		GameStateBase(application),
-		backgroundTexture(nullptr),
-		backgroundSprite(),
-		camera(application.getWindow()),
-		player(),
+		background("Assets/Textures/GrassBackground.jpg", 2, 2),
+		counter(),
 		forest(),
-		frameRateCounter(),
+		player(),
+		camera(this->window),
 		followPlayer(true)
 	{
-		this->backgroundTexture = Utils::Loaders::TextureLoader::get("Assets/Textures/GrassBackground.jpg");
-
-		if (auto texture = this->backgroundTexture)
-		{
-			this->window.setSize(texture->getSize());
-			texture->setRepeated(true);
-
-			this->backgroundSprite.setTexture(*texture);
-			this->backgroundSprite.setTextureRect(sf::IntRect(0, 0, 1024 * 2, 1024 * 2));
-		}
-
-		this->player.setPosition(this->backgroundSprite.getTextureRect().width / 2.f, this->backgroundSprite.getTextureRect().height / 2.f);
-		this->frameRateCounter.setPosition(sf::Vector2f(30.f, 30.f));
-
-		if (!this->forest.loadFromFile("Assets/WorldData/TreePositions.txt"))
-		{
-			// Failed to load the treepositions ...
-			return;
-		}
+		this->bindInput();
+		
+		this->camera.bindInput(this->input);
+		this->counter.setPosition(30.f, 30.f);
+		this->forest.loadFromFile("Assets/WorldData/TreePositions.txt");
 	}
-	
-	void PlayingGameState::handleInput(const sf::Event & event)
-	{
-		switch (event.type)
-		{
-			case sf::Event::EventType::MouseWheelScrolled:
-			{
-				auto & args = event.mouseWheelScroll;
-				if (args.wheel == sf::Mouse::Wheel::VerticalWheel)
-				{
-					const bool forwards = args.delta > 0;
-
-					if (forwards)
-					{
-						this->camera.zoom(0.9f);
-					} else
-					{
-						this->camera.zoom(1.1f);
-					}
-				}
-			} break;
-
-			case sf::Event::KeyPressed:
-			{
-				auto & args = event.key;
-				if (args.code == sf::Keyboard::Key::RControl)
-				{
-					this->followPlayer = !this->followPlayer;
-				}
-			} break;
-
-			default:
-				break;
-		}
-	}
-	
+		
 	void PlayingGameState::update(const sf::Time & deltaTime)
 	{
+		this->counter.count();
+
+		this->input.listen();
 		this->player.update(deltaTime);
-		this->frameRateCounter.count();
-
-		this->forest.handleCollision(this->player);
-
-		if (this->followPlayer)
-		{
-			this->camera.setCenter(this->player.getPosition());
-		} else
-		{
-			this->camera.handleInput(deltaTime);
-		}
+		
+		if (this->followPlayer) this->camera.setCenter(this->player.getPosition());
+		else this->camera.update(deltaTime);
 	}
 	
 	void PlayingGameState::draw() const
 	{
-		this->window.clear(sf::Color::Black);
-		
+		this->window.clear();
+
 		this->window.setView(this->camera);
 		// ----------------------------------------------
-		// Alles was mit der view bewegt werden soll ...
-		this->window.draw(this->backgroundSprite);
+		// Alles was sich mit der Kamera bewegen soll:
+		this->window.draw(this->background);
 		this->window.draw(this->player);
 		this->window.draw(this->forest);
 		// ----------------------------------------------
 		this->window.setView(this->window.getDefaultView());
 
-		this->window.draw(this->frameRateCounter);
+		this->window.draw(this->counter);
+	}
+
+	void PlayingGameState::bindInput()
+	{
+		this->input.bind(sf::Keyboard::RControl)
+			.onKeyReleased([this]() { this->followPlayer = !this->followPlayer; });
 	}
 
 }

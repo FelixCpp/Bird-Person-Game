@@ -159,6 +159,7 @@
     <ClCompile Include="Source\BPG\GameObjects\Forest.cpp" />
     <ClCompile Include="Source\BPG\GameObjects\FrameRateCounter.cpp" />
     <ClCompile Include="Source\BPG\GameObjects\Player.cpp" />
+    <ClCompile Include="Source\BPG\GameObjects\StaticImage.cpp" />
     <ClCompile Include="Source\BPG\GameObjects\Tree.cpp" />
     <ClCompile Include="Source\BPG\GameStates\GameStateBase.cpp" />
     <ClCompile Include="Source\BPG\GameStates\PlayingGameState.cpp" />
@@ -185,6 +186,7 @@
     <ClInclude Include="Include\BPG\GameObjects\Forest.hpp" />
     <ClInclude Include="Include\BPG\GameObjects\FrameRateCounter.hpp" />
     <ClInclude Include="Include\BPG\GameObjects\Player.hpp" />
+    <ClInclude Include="Include\BPG\GameObjects\StaticImage.hpp" />
     <ClInclude Include="Include\BPG\GameObjects\Tree.hpp" />
     <ClInclude Include="Include\BPG\GameStates\GameStateBase.hpp" />
     <ClInclude Include="Include\BPG\GameStates\PlayingGameState.hpp" />

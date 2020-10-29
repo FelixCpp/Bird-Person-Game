@@ -6,7 +6,6 @@ namespace GameObjects
 {
 
 	FrameRateCounter::FrameRateCounter() :
-		text(),
 		font(nullptr),
 		refreshRate(sf::milliseconds(250)),
 		delayClock(),
@@ -16,8 +15,8 @@ namespace GameObjects
 	{
 		if (this->font = Utils::Loaders::FontLoader::get("Assets/Fonts/Sansation/Sansation-Regular.ttf"))
 		{
-			this->text.setFont(*this->font);
-			this->text.setCharacterSize(32);
+			this->setFont(*this->font);
+			this->setCharacterSize(32);
 		}
 	}
 
@@ -28,7 +27,7 @@ namespace GameObjects
 		if (this->delayClock.getElapsedTime() >= this->refreshRate)
 		{
 			this->fps = (float)this->frameCount / this->fpsClock.restart().asSeconds();
-			this->text.setString("Fps: " + std::to_string((int)this->fps));
+			this->setString("Fps: " + std::to_string((int)this->fps));
 			this->frameCount = 0;
 			this->delayClock.restart();
 		}
@@ -47,12 +46,6 @@ namespace GameObjects
 	float FrameRateCounter::getFps() const
 	{
 		return this->fps;
-	}
-
-	void FrameRateCounter::draw(sf::RenderTarget & target, sf::RenderStates states) const
-	{
-		states.transform *= this->getTransform();
-		target.draw(this->text, states);
 	}
 
 }

@@ -1,10 +1,17 @@
 #pragma once
 
+#include <BPG/Maths/Vector2.hpp>
+
 #include <SFML/System/Time.hpp>
 #include <SFML/Graphics/View.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 
-namespace GameObjects
+namespace Input
+{
+	class InputManager;
+}
+
+namespace Extensions
 {
 
 	class View : public sf::View {
@@ -15,7 +22,12 @@ namespace GameObjects
 
 		explicit View(const sf::RenderWindow & window);
 
-		void handleInput(const sf::Time & deltaTime);
+		void bindInput(Input::InputManager & input);
+		void update(const sf::Time & deltaTime);
+
+	private:
+
+		Maths::FVector2 velocity;
 
 	};
 

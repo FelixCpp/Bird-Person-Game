@@ -1,5 +1,7 @@
 #pragma once
 
+#include <BPG/Input/InputManager.hpp>
+
 namespace sf
 {
 	class Event;
@@ -19,9 +21,10 @@ namespace GameStates
 	public:
 
 		explicit GameStateBase(Utils::Application & application);
-		virtual ~GameStateBase() = default;
+		virtual ~GameStateBase();
 
-		virtual void handleInput(const sf::Event & event) = 0;
+		void onEvent(const sf::Event & event);
+		
 		virtual void update(const sf::Time & deltaTime) = 0;
 		virtual void draw() const = 0;
 
@@ -29,6 +32,7 @@ namespace GameStates
 
 		Utils::Application & app;
 		sf::RenderWindow & window;
+		Input::InputManager input;
 
 	};
 

@@ -11,6 +11,7 @@ namespace Utils
 		gameStates() // leerer stack
 	{
 		this->window.setFramerateLimit(60u);
+		this->window.setKeyRepeatEnabled(false);
 	}
 	
 	void Application::launch()
@@ -35,7 +36,7 @@ namespace Utils
 					window.setView(sf::View(visibleArea));
 				} else
 				{
-					state->handleInput(event);
+					state->onEvent(event);
 				}
 			}
 

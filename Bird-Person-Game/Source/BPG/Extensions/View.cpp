@@ -2,38 +2,30 @@
 #include <BPG/Maths/Vector2.hpp>
 
 #include <SFML/Window/Keyboard.hpp>
+#include <BPG/Input/InputManager.hpp>
 
-namespace GameObjects
+namespace Extensions
 {
 
 	View::View(const sf::RenderWindow & window) :
-		sf::View(sf::Vector2f(0.f, 0.f), (sf::Vector2f)window.getSize())
+		sf::View(sf::Vector2f(0.f, 0.f), (sf::Vector2f)window.getSize()),
+		velocity(0.f, 0.f)
 	{
 	}
 
-	void View::handleInput(const sf::Time & deltaTime)
+	void View::bindInput(Input::InputManager & input)
 	{
-		Maths::FVector2 velocity(0.f, 0.f);
+		input.bind(sf::Keyboard::Down).onKeyDown([this]() { this->velocity.y = 1.f; });
+		input.bind(sf::Keyboard::Up).onKeyDown([this]() { this->velocity.y = -1.f; });
+		input.bind(sf::Keyboard::Right).onKeyDown([this]() { this->velocity.x = 1.f; });
+		input.bind(sf::Keyboard::Left).onKeyDown([this]() { this->velocity.x = -1.f; });
+	}
 
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
-		{
-			velocity.y = -1.f;
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
-		{
-			velocity.y = 1.f;
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
-		{
-			velocity.x = -1.f;
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
-		{
-			velocity.x = 1.f;
-		}
-
-		velocity.setLength(SPEED * deltaTime.asSeconds());
-		this->move(velocity.toSFVector2());
+	void View::update(const sf::Time & deltaTime)
+	{
+		this->velocity.setLength(SPEED * deltaTime.asSeconds());
+		this->move(this->velocity.toSFVector2());
+		this->velocity *= 0.f;
 	}
 
 }

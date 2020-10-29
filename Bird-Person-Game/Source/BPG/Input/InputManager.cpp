@@ -1,6 +1,8 @@
 #include <BPG/Input/InputManager.hpp>
 
 #include <SFML/Window/Event.hpp>
+#include <iostream>
+
 namespace Input
 {
 	
@@ -58,6 +60,11 @@ namespace Input
 				}
 			}
 		}
+	}
+
+	void InputManager::clear()
+	{
+		this->bindings.clear();
 	}
 
 	KeyBinding & InputManager::bind(sf::Keyboard::Key key)

@@ -21,6 +21,7 @@ namespace Input
 
 		void onEvent(const sf::Event & event);
 		void listen();
+		void clear();
 
 		KeyBinding & bind(sf::Keyboard::Key key);
 
