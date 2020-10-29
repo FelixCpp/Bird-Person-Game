@@ -74,6 +74,7 @@ namespace GameObjects
 
 	void Player::handleInput()
 	{
+		// const Maths::FVector2 velocity = Utils::InputHandler::getPlayerVelocity(*this);
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
 		{
 			this->velocity.y = -1.f;
