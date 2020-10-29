@@ -11,6 +11,11 @@
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/System/Time.hpp>
 
+namespace Input
+{
+	class InputManager;
+}
+
 namespace GameObjects
 {
 
@@ -38,6 +43,7 @@ namespace GameObjects
 		Player();
 
 		void update(const sf::Time & deltaTime);
+		void bindInput(Input::InputManager & input);
 
 		virtual sf::FloatRect getBoundary() const override;
 		virtual void onCollision(const BoundaryComponent & boundary) override;
@@ -47,8 +53,11 @@ namespace GameObjects
 
 		Utils::Animation & getAnimation();
 
-		void handleInput();
 		void initializeAnimations();
+		void walk(int dirX, int dirY, Direction dir);
+
+		void handleAnimation(const sf::Time & deltaTime);
+		void handleMovement(const sf::Time & deltaTime);
 
 	private:
 

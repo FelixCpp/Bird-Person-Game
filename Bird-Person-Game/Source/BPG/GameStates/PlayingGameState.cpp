@@ -20,6 +20,8 @@ namespace GameStates
 		this->bindInput();
 		
 		this->camera.bindInput(this->input);
+		this->player.bindInput(this->input);
+
 		this->counter.setPosition(30.f, 30.f);
 		this->forest.loadFromFile("Assets/WorldData/TreePositions.txt");
 	}

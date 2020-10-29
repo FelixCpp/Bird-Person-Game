@@ -1,11 +1,9 @@
 #include <BPG/GameObjects/Player.hpp>
-
 #include <BPG/Maths/CollisionHandler.hpp>
-
 #include <BPG/Utils/Loaders/ResourceLoader.hpp>
+#include <BPG/Input/InputManager.hpp>
 
 #include <SFML/Window/Keyboard.hpp>
-
 #include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/RectangleShape.hpp>
 
@@ -15,33 +13,32 @@ namespace GameObjects
 {
 
 	Player::Player() :
-		texture(nullptr),
+		texture(Utils::Loaders::TextureLoader::get("Assets/Textures/Fox.png")),
 		velocity(0.f, 0.f),
 		direction(Direction::WalkingRight),
 		animations()
 	{
-		if (this->texture = Utils::Loaders::TextureLoader::get("Assets/Textures/Fox.png"))
+		this->initializeAnimations();
+
+		if (this->texture)
 		{
 			this->setTexture(*this->texture);
+			this->setScale(2.f, 2.f);
 		}
-
-		this->setScale(2.f, 2.f);
-		this->initializeAnimations();
 	}
 
 	void Player::update(const sf::Time & deltaTime)
 	{
-		this->handleInput();
-		this->getAnimation().update(deltaTime);
-		this->getAnimation().applyToSprite(*this);
+		this->handleAnimation(deltaTime);
+		this->handleMovement(deltaTime);
+	}
 
-		const sf::IntRect rect = this->getTextureRect();
-		const sf::Vector2f size(rect.width / 2.f, rect.height / 2.f);
-		this->setOrigin(size);
-
-		const Maths::FVector2 change = this->velocity * deltaTime.asSeconds();
-		this->move(change.toSFVector2());
-		this->velocity *= 0.f;
+	void Player::bindInput(Input::InputManager & input)
+	{
+		input.bind(sf::Keyboard::W).onKeyDown([this]() { this->walk(0, -1, Direction::WalkingUp); });
+		input.bind(sf::Keyboard::S).onKeyDown([this]() { this->walk(0,  1, Direction::WalkingDown); });
+		input.bind(sf::Keyboard::A).onKeyDown([this]() { this->walk(-1, 0, Direction::WalkingLeft); });
+		input.bind(sf::Keyboard::D).onKeyDown([this]() { this->walk( 1, 0, Direction::WalkingRight); });
 	}
 
 	sf::FloatRect Player::getBoundary() const
@@ -62,40 +59,41 @@ namespace GameObjects
 		this->move(toMove.toSFVector2());
 	}
 
-	void Player::onCollisionFreed()
-	{
-
-	}
+	void Player::onCollisionFreed() {}
 
 	Utils::Animation & Player::getAnimation()
 	{
 		return this->animations.at(this->direction);
 	}
 
-	void Player::handleInput()
+	void Player::initializeAnimations()
 	{
-		// const Maths::FVector2 velocity = Utils::InputHandler::getPlayerVelocity(*this);
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::W))
+		if (auto texture = this->texture)
 		{
-			this->velocity.y = -1.f;
-			this->direction = Direction::WalkingUp;
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S))
-		{
-			this->velocity.y = 1.f;
-			this->direction = Direction::WalkingDown;
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::A))
-		{
-			this->velocity.x = -1.f;
-			this->direction = Direction::WalkingLeft;
-		}
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::D))
-		{
-			this->velocity.x = 1.f;
-			this->direction = Direction::WalkingRight;
-		}
+			this->animations.insert({ Direction::WalkingDown,  Utils::Animation(*texture, 3, 4, 0, 3, 0, 1) });
+			this->animations.insert({ Direction::WalkingLeft,  Utils::Animation(*texture, 3, 4, 0, 3, 1, 1) });
+			this->animations.insert({ Direction::WalkingRight, Utils::Animation(*texture, 3, 4, 0, 3, 2, 1) });
+			this->animations.insert({ Direction::WalkingUp,    Utils::Animation(*texture, 3, 4, 0, 3, 3, 1) });
 
+			this->animations.insert({ Direction::StandingDown,  Utils::Animation(*texture, 3, 4, 1, 1, 0, 1) });
+			this->animations.insert({ Direction::StandingLeft,  Utils::Animation(*texture, 3, 4, 1, 1, 1, 1) });
+			this->animations.insert({ Direction::StandingRight, Utils::Animation(*texture, 3, 4, 1, 1, 2, 1) });
+			this->animations.insert({ Direction::StandingUp,    Utils::Animation(*texture, 3, 4, 1, 1, 3, 1) });
+		}
+	}
+
+	void Player::handleAnimation(const sf::Time & deltaTime)
+	{
+		this->getAnimation().update(deltaTime);
+		this->getAnimation().applyToSprite(*this);
+
+		const sf::IntRect rect = this->getTextureRect();
+		const sf::Vector2f size(rect.width / 2.f, rect.height / 2.f);
+		this->setOrigin(size);
+	}
+
+	void Player::handleMovement(const sf::Time & deltaTime)
+	{
 		const bool standing = this->velocity.x == 0.f && this->velocity.y == 0.f;
 		if (standing)
 		{
@@ -118,22 +116,17 @@ namespace GameObjects
 
 			this->velocity.setLength(speed);
 		}
+
+		const Maths::FVector2 change = this->velocity * deltaTime.asSeconds();
+		this->move(change.toSFVector2());
+		this->velocity *= 0.f;
 	}
 
-	void Player::initializeAnimations()
+	void Player::walk(int dirX, int dirY, Direction dir)
 	{
-		if (auto texture = this->texture)
-		{
-			this->animations.insert({ Direction::WalkingDown,  Utils::Animation(*texture, 3, 4, 0, 3, 0, 1) });
-			this->animations.insert({ Direction::WalkingLeft,  Utils::Animation(*texture, 3, 4, 0, 3, 1, 1) });
-			this->animations.insert({ Direction::WalkingRight, Utils::Animation(*texture, 3, 4, 0, 3, 2, 1) });
-			this->animations.insert({ Direction::WalkingUp,    Utils::Animation(*texture, 3, 4, 0, 3, 3, 1) });
-
-			this->animations.insert({ Direction::StandingDown,  Utils::Animation(*texture, 3, 4, 1, 1, 0, 1) });
-			this->animations.insert({ Direction::StandingLeft,  Utils::Animation(*texture, 3, 4, 1, 1, 1, 1) });
-			this->animations.insert({ Direction::StandingRight, Utils::Animation(*texture, 3, 4, 1, 1, 2, 1) });
-			this->animations.insert({ Direction::StandingUp,    Utils::Animation(*texture, 3, 4, 1, 1, 3, 1) });
-		}
+		this->velocity.x = (float)dirX;
+		this->velocity.y = (float)dirY;
+		this->direction = dir;
 	}
 
 }
