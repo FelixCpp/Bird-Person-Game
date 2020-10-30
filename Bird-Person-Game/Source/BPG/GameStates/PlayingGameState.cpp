@@ -21,6 +21,7 @@ namespace GameStates
 		
 		this->camera.bindInput(this->input);
 		this->player.bindInput(this->input);
+		this->player.setPosition((this->background.getSize() / 2.f).toSFVector2());
 
 		this->counter.setPosition(30.f, 30.f);
 		this->forest.loadFromFile("Assets/WorldData/TreePositions.txt");

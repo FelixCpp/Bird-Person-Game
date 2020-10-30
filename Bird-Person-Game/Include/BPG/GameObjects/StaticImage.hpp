@@ -2,6 +2,8 @@
 
 #include <memory>
 
+#include <BPG/Maths/Vector2.hpp>
+
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
 
@@ -12,6 +14,8 @@ namespace GameObjects
 	public:
 
 		explicit StaticImage(const std::string & filepath, float pixelScaleX, float pixelScaleY);
+
+		Maths::FVector2 getSize() const;
 
 	private:
 

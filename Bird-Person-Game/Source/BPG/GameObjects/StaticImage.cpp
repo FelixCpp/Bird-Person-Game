@@ -1,6 +1,8 @@
 #include <BPG/GameObjects/StaticImage.hpp>
 #include <BPG/Utils/Loaders/ResourceLoader.hpp>
 
+#include <iostream>
+
 namespace GameObjects
 {
 
@@ -15,6 +17,12 @@ namespace GameObjects
 			this->setTextureRect(sf::IntRect(0, 0, size.x * pixelScaleX, size.y * pixelScaleY));
 			this->texture->setRepeated(true);
 		}
+	}
+
+	Maths::FVector2 StaticImage::getSize() const
+	{
+		const sf::IntRect boundary = this->getTextureRect();
+		return Maths::FVector2(boundary.width, boundary.height);
 	}
 
 }
