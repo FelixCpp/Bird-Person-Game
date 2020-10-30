@@ -162,6 +162,7 @@
     <ClCompile Include="Source\BPG\GameObjects\StaticImage.cpp" />
     <ClCompile Include="Source\BPG\GameObjects\Tree.cpp" />
     <ClCompile Include="Source\BPG\GameStates\GameStateBase.cpp" />
+    <ClCompile Include="Source\BPG\GameStates\MapEditorGameState.cpp" />
     <ClCompile Include="Source\BPG\GameStates\PlayingGameState.cpp" />
     <ClCompile Include="Source\BPG\Input\InputBinding.cpp" />
     <ClCompile Include="Source\BPG\Input\InputManager.cpp" />
@@ -189,6 +190,7 @@
     <ClInclude Include="Include\BPG\GameObjects\StaticImage.hpp" />
     <ClInclude Include="Include\BPG\GameObjects\Tree.hpp" />
     <ClInclude Include="Include\BPG\GameStates\GameStateBase.hpp" />
+    <ClInclude Include="Include\BPG\GameStates\MapEditorGameState.hpp" />
     <ClInclude Include="Include\BPG\GameStates\PlayingGameState.hpp" />
     <ClInclude Include="Include\BPG\Input\InputBinding.hpp" />
     <ClInclude Include="Include\BPG\Input\InputManager.hpp" />

@@ -8,7 +8,7 @@ namespace Extensions
 {
 
 	View::View(const sf::RenderWindow & window) :
-		sf::View(sf::Vector2f(0.f, 0.f), (sf::Vector2f)window.getSize()),
+		sf::View((sf::Vector2f)window.getSize() / 2.f, (sf::Vector2f)window.getSize()),
 		velocity(0.f, 0.f)
 	{
 	}

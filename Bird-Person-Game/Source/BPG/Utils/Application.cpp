@@ -1,7 +1,7 @@
 #include <BPG/Utils/Application.hpp>
 #include <SFML/Window/Event.hpp>
 
-#include <BPG/GameStates/PlayingGameState.hpp>
+#include <BPG/GameStates/MapEditorGameState.hpp>
 
 namespace Utils
 {
@@ -16,7 +16,7 @@ namespace Utils
 	
 	void Application::launch()
 	{
-		this->pushState(std::make_unique<GameStates::PlayingGameState>(*this));
+		this->pushState(std::make_unique<GameStates::MapEditorGameState>(*this));
 
 		sf::Clock clock;
 		sf::Event event;

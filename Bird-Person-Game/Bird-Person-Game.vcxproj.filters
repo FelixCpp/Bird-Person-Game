@@ -66,6 +66,9 @@
     <ClCompile Include="Source\BPG\Input\InputBinding.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="Source\BPG\GameStates\MapEditorGameState.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="openal32.dll" />
@@ -140,6 +143,9 @@
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Include\BPG\Input\InputBinding.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Include\BPG\GameStates\MapEditorGameState.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>
