@@ -32,6 +32,8 @@ namespace GameStates
 
 		this->input.listen();
 		this->player.update(deltaTime);
+
+		this->forest.handleCollision(this->player);
 		
 		if (this->followPlayer) this->camera.setCenter(this->player.getPosition());
 		else this->camera.update(deltaTime);
