@@ -1,7 +1,6 @@
 #include <BPG/Input/InputManager.hpp>
 
 #include <SFML/Window/Event.hpp>
-#include <iostream>
 
 namespace Input
 {
@@ -119,6 +118,10 @@ namespace Input
 	{
 		this->keyBindings.clear();
 		this->buttonBindings.clear();
+		this->wheelBindings.clear();
+
+		this->downKeys.clear();
+		this->downButtons.clear();
 	}
 
 	InputBinding & InputManager::bind(sf::Keyboard::Key key)

@@ -59,8 +59,7 @@ namespace GameStates
 	void PlayingGameState::bindInput()
 	{
 		this->input.bind(sf::Keyboard::RControl).onReleased([this]() { this->followPlayer = !this->followPlayer; });
-		// TODO: this->input.bind(sf::Mouse::Wheel::VerticalWheel).onChange([](int delta) { /* ... */ });
-
+		
 		this->input.bind(sf::Mouse::Wheel::VerticalWheel)
 			.onChange([this](float delta) {
 			if (delta > 0.f)
