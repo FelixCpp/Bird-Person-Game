@@ -60,10 +60,10 @@
     <ClCompile Include="Source\BPG\Input\InputManager.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="Source\BPG\Input\KeyBinding.cpp">
+    <ClCompile Include="Source\BPG\GameObjects\StaticImage.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
-    <ClCompile Include="Source\BPG\GameObjects\StaticImage.cpp">
+    <ClCompile Include="Source\BPG\Input\InputBinding.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
   </ItemGroup>
@@ -136,10 +136,10 @@
     <ClInclude Include="Include\BPG\Input\InputManager.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Include\BPG\Input\KeyBinding.hpp">
+    <ClInclude Include="Include\BPG\GameObjects\StaticImage.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
-    <ClInclude Include="Include\BPG\GameObjects\StaticImage.hpp">
+    <ClInclude Include="Include\BPG\Input\InputBinding.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

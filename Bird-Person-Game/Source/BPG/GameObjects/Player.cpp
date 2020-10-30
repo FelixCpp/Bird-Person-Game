@@ -35,10 +35,10 @@ namespace GameObjects
 
 	void Player::bindInput(Input::InputManager & input)
 	{
-		input.bind(sf::Keyboard::W).onKeyDown([this]() { this->walk(0, -1, Direction::WalkingUp); });
-		input.bind(sf::Keyboard::S).onKeyDown([this]() { this->walk(0,  1, Direction::WalkingDown); });
-		input.bind(sf::Keyboard::A).onKeyDown([this]() { this->walk(-1, 0, Direction::WalkingLeft); });
-		input.bind(sf::Keyboard::D).onKeyDown([this]() { this->walk( 1, 0, Direction::WalkingRight); });
+		input.bind(sf::Keyboard::W).onDown([this]() { this->velocity.y = -1.f; this->direction = Direction::WalkingUp; });
+		input.bind(sf::Keyboard::S).onDown([this]() { this->velocity.y =  1.f; this->direction = Direction::WalkingDown; });
+		input.bind(sf::Keyboard::A).onDown([this]() { this->velocity.x = -1.f; this->direction = Direction::WalkingLeft; });
+		input.bind(sf::Keyboard::D).onDown([this]() { this->velocity.x =  1.f; this->direction = Direction::WalkingRight; });
 	}
 
 	sf::FloatRect Player::getBoundary() const
@@ -120,13 +120,6 @@ namespace GameObjects
 		const Maths::FVector2 change = this->velocity * deltaTime.asSeconds();
 		this->move(change.toSFVector2());
 		this->velocity *= 0.f;
-	}
-
-	void Player::walk(int dirX, int dirY, Direction dir)
-	{
-		this->velocity.x = (float)dirX;
-		this->velocity.y = (float)dirY;
-		this->direction = dir;
 	}
 
 }

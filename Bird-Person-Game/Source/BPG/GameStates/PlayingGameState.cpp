@@ -55,8 +55,19 @@ namespace GameStates
 
 	void PlayingGameState::bindInput()
 	{
-		this->input.bind(sf::Keyboard::RControl).onKeyReleased([this]() { this->followPlayer = !this->followPlayer; });
+		this->input.bind(sf::Keyboard::RControl).onReleased([this]() { this->followPlayer = !this->followPlayer; });
 		// TODO: this->input.bind(sf::Mouse::Wheel::VerticalWheel).onChange([](int delta) { /* ... */ });
+
+		this->input.bind(sf::Mouse::Wheel::VerticalWheel)
+			.onChange([this](float delta) {
+			if (delta > 0.f)
+			{
+				this->camera.zoom(0.9f);
+			} else
+			{
+				this->camera.zoom(1.1f);
+			}
+		});
 	}
 
 }

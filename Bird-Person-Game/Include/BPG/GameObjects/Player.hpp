@@ -54,8 +54,7 @@ namespace GameObjects
 		Utils::Animation & getAnimation();
 
 		void initializeAnimations();
-		void walk(int dirX, int dirY, Direction dir);
-
+		
 		void handleAnimation(const sf::Time & deltaTime);
 		void handleMovement(const sf::Time & deltaTime);
 

@@ -15,10 +15,10 @@ namespace Extensions
 
 	void View::bindInput(Input::InputManager & input)
 	{
-		input.bind(sf::Keyboard::Down).onKeyDown([this]() { this->velocity.y = 1.f; });
-		input.bind(sf::Keyboard::Up).onKeyDown([this]() { this->velocity.y = -1.f; });
-		input.bind(sf::Keyboard::Right).onKeyDown([this]() { this->velocity.x = 1.f; });
-		input.bind(sf::Keyboard::Left).onKeyDown([this]() { this->velocity.x = -1.f; });
+		input.bind(sf::Keyboard::Down).onDown([this]() { this->velocity.y = 1.f; });
+		input.bind(sf::Keyboard::Up).onDown([this]() { this->velocity.y = -1.f; });
+		input.bind(sf::Keyboard::Right).onDown([this]() { this->velocity.x = 1.f; });
+		input.bind(sf::Keyboard::Left).onDown([this]() { this->velocity.x = -1.f; });
 	}
 
 	void View::update(const sf::Time & deltaTime)
